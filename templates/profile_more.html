@@ -1,0 +1,5 @@
+<div id="profile-more" hx-swap-oob="innerHTML">
+  {{if .Cursor}}
+    <button hx-get="/htmx/profile?did={{.Did}}&cursor={{.Cursor}}" hx-target="#profile-posts" hx-swap="beforeend" class="load-more-btn">Load more</button>
+  {{end}}
+</div>

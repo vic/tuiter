@@ -1,0 +1,41 @@
+{{template "header.html" .}}
+
+    <div class="main-content">
+      <div class="content">
+        {{if .ErrorMsg}}
+        <div class="status-message error">{{.ErrorMsg}}</div>
+        {{else if .StatusMsg}}
+        <div class="status-message success">{{.StatusMsg}}</div>
+        {{end}}
+        
+        <div class="about-section">
+          <div class="profile-pic">
+            {{if .Profile.Avatar}}
+            <img src="{{.Profile.Avatar}}" alt="{{getDisplayName .Profile}}" />
+            {{else}}
+            👤
+            {{end}}
+          </div>
+          <div class="profile-info">
+            <strong>{{getDisplayName .Profile}}</strong><br>
+            @{{.Profile.Handle}}
+          </div>
+        </div>
+        
+        <div class="post-form">
+          <form action="/post-status" method="post">
+            <textarea name="status" placeholder="What are you doing?"></textarea>
+            <button type="submit">update</button>
+          </form>
+        </div>
+        
+        <div class="timeline-intro">
+          <a href="/timeline">Return to timeline</a>
+        </div>
+      </div>
+
+{{template "sidebar.html" .}}
+
+    </div>
+
+{{template "footer.html" .}}

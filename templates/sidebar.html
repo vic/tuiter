@@ -1,0 +1,69 @@
+<div class="sidebar">
+          {{if .Profile}}
+          <div class="about-section">
+            <h3>About</h3>
+            <div class="profile-pic">
+              {{if .Profile.Avatar}}
+              <a href="/profile/{{.Profile.Handle}}"><img src="{{.Profile.Avatar}}" alt="{{getDisplayName .Profile}}" /></a>
+              {{else}}
+              <a href="/profile/{{.Profile.Handle}}">👤</a>
+              {{end}}
+            </div>
+            <div class="profile-info">
+              <strong><a href="/profile/{{.Profile.Handle}}">{{getDisplayName .Profile}}</a></strong><br>
+              {{if .Profile.Description}}
+              {{.Profile.Description}}
+              {{end}}
+            </div>
+            
+            <div class="stats">
+              <p>
+              <span class="stat"><strong>{{getFollowersCount .Profile}}</strong> followers</span>
+              <span class="stat"><strong>{{getFollowingCount .Profile}}</strong> following</span>
+</p>
+<p>
+              <span class="stat"><strong>{{getPostsCount .Profile}}</strong> updates</span>
+</p>
+            </div>
+          </div>
+
+          {{if .Follows}}
+          <div class="following-section">
+            <h3>Following</h3>
+            <div class="following-grid">
+              {{range .Follows}}
+              <div class="following-avatar">
+                {{if .Avatar}}
+                <a href="/profile/{{.Handle}}" title="{{getDisplayName .}} ({{.Handle}})">
+                  <img src="{{.Avatar}}" alt="{{getDisplayName .}}" />
+                </a>
+                {{else}}
+                <a href="/profile/{{.Handle}}" title="{{getDisplayName .}} ({{.Handle}})">👤</a>
+                {{end}}
+              </div>
+              {{end}}
+            </div>
+          </div>
+          {{end}}
+
+          <div class="actions">
+            <a href="/logout" class="logout-btn">Sign out</a>
+            <p>Made with <code>&lt;3</code> by <a href="https://x.com/oeiuwq">@oeiuwq</a></p>
+          </div>
+          {{else}}
+          <div class="signin-form">
+            <h3>Sign In</h3>
+            <form action="/login" method="post">
+              <div class="form-group">
+                <label for="identifier">Username or Email:</label>
+                <input type="text" id="identifier" name="identifier" required>
+              </div>
+              <input type="submit" value="Sign In" class="signin-btn">
+            </form>
+            <div class="join-section">
+              <a href="https://bsky.app" class="join-link">Join Twitter today!</a>
+              <p class="join-subtext">Already using Twitter on your phone? <a href="/login">Sign in here</a></p>
+            </div>
+          </div>
+          {{end}}
+        </div>

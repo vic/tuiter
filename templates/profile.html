@@ -1,0 +1,36 @@
+{{template "header.html" .}}
+
+    <div class="main-content">
+      <div class="content">
+        {{if .Profile}}
+          <!-- Profile header -->
+          {{template "profile_header_partial.html" .}}
+
+          <!-- Posts area: delegate to shared partial that uses post_item -->
+          <div class="posts-area">
+            <div id="profile-posts">
+              {{template "posts_list_partial.html" .}}
+            </div>
+          </div>
+
+          <div id="profile-more">
+            {{if .Posts.Cursor}}
+              <button hx-get="/htmx/profile?did={{.Profile.Did}}&cursor={{.Posts.Cursor}}" hx-target="#profile-posts" hx-swap="beforeend" class="load-more-btn">Load more</button>
+            {{end}}
+          </div>
+
+        {{else}}
+          <div class="post">
+            <div class="post-avatar">!</div>
+            <div class="post-content">
+              <div class="post-text error-text">{{if .ErrorMsg}}{{.ErrorMsg}}{{else}}Profile not found{{end}}</div>
+            </div>
+          </div>
+        {{end}}
+      </div>
+
+{{template "sidebar.html" .}}
+
+    </div>
+
+{{template "footer.html" .}}

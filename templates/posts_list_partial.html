@@ -1,0 +1,34 @@
+{{/* Shared posts list partial. Accepts either a PostsList or a page struct with .Posts (PostsList). */}}
+{{if .Posts}}
+  {{/* called with full page data; use .Posts */}}
+  {{$postsList := .Posts}}
+  {{$ppmap := $postsList.ParentPreviews}}
+  {{if $postsList.Items}}
+    {{range $postsList.Items}}
+      {{template "post_item" (dict "Post" . "PostsList" $postsList)}}
+    {{end}}
+  {{else}}
+    <div class="post">
+      <div class="post-avatar">📱</div>
+      <div class="post-content">
+        <div class="post-text">No updates available.</div>
+      </div>
+    </div>
+  {{end}}
+{{else}}
+  {{/* called with PostsList as dot */}}
+  {{$postsList := .}}
+  {{$ppmap := $postsList.ParentPreviews}}
+  {{if $postsList.Items}}
+    {{range $postsList.Items}}
+      {{template "post_item" (dict "Post" . "PostsList" $postsList)}}
+    {{end}}
+  {{else}}
+    <div class="post">
+      <div class="post-avatar">📱</div>
+      <div class="post-content">
+        <div class="post-text">No updates available.</div>
+      </div>
+    </div>
+  {{end}}
+{{end}}

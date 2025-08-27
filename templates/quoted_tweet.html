@@ -1,0 +1,19 @@
+{{define "quoted_tweet"}}
+{{with .}}
+<div class="quoted-tweet">
+  <a href="{{getPostURL .Parent}}" class="qt-label qt-label-link" title="{{getDisplayName .Parent.Author}} quoted {{getDisplayName .Embed.Author}}">QT</a>
+  <span class="quoted-avatar">
+    {{if .Embed.Author.Avatar}}
+      <a href="{{getProfileURL .Embed.Author}}"><img src="{{.Embed.Author.Avatar}}" alt="{{getDisplayName .Embed.Author}}" class="quoted-avatar-img" /></a>
+    {{else}}
+      <a href="{{getProfileURL .Embed.Author}}">👤</a>
+    {{end}}
+  </span>
+  <a href="{{getProfileURL .Embed.Author}}" class="quoted-author-name">{{getDisplayName .Embed.Author}}</a>
+  <span class="quoted-text">{{getPostText .Embed.Value}}</span>
+
+  {{/* Render media for the quoted record if present using the shared media partial */}}
+  {{template "post_media" .Parent}}
+</div>
+{{end}}
+{{end}}

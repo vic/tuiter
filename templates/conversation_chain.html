@@ -1,0 +1,29 @@
+{{define "conversation_chain"}}
+<div class="conversation-chain">
+  {{if .}}
+    {{range .}}
+      <div class="chain-item">
+        <div class="chain-avatar">
+          {{/* Use helpers to keep template logic minimal */}}
+          <a href="{{getProfileURL .Author}}">
+            {{if hasAvatar .Author}}
+              <img src="{{avatarURL .Author}}" alt="{{getDisplayName .Author}}" class="chain-avatar-img"/>
+            {{else}}
+              👤
+            {{end}}
+          </a>
+        </div>
+        <div class="chain-content">
+          <a href="{{getProfileURL .Author}}" class="chain-author">{{getDisplayName .Author}}</a>
+          <div class="chain-text">{{getPostText .Record}}</div>
+
+          {{/* Render embedded media in conversation chain */}}
+          {{template "post_media" .}}
+
+          <div class="chain-meta"><a href="{{getPostURL .}}">{{.IndexedAt}}</a></div>
+        </div>
+      </div>
+    {{end}}
+  {{end}}
+</div>
+{{end}}

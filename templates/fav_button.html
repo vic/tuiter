@@ -1,0 +1,7 @@
+{{define "fav_button"}}
+{{/* dot is a dict {"Class": *string, "Count": int, "IsFav": bool} */}}
+<div class="fav-button {{.Class}} {{if .IsFav}}active{{else}}{{end}}" aria-hidden="false" title="Fav">
+    <button class="fav-btn" aria-label="fav">{{if .IsFav}}★{{else}}☆{{end}}</button>
+    <span class="fav-count">{{.Count}}</span>
+</div>
+{{end}}

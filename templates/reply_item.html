@@ -1,0 +1,24 @@
+{{define "reply_item"}}
+<div id="{{makeElementID .Uri}}" class="reply-post">
+  <div class="reply-avatar">
+    <a href="{{getProfileURL .Author}}">
+      {{if hasAvatar .Author}}
+        <img src="{{avatarURL .Author}}" alt="{{getDisplayName .Author}}" />
+      {{else}}
+        👤
+      {{end}}
+    </a>
+  </div>
+  <div class="reply-content">
+    <a href="{{getProfileURL .Author}}" class="reply-author">{{getDisplayName .Author}}</a>
+    <span class="reply-text">{{getPostText .Record}}</span>
+
+    {{/* Render embedded media for replies using the shared partial. It accepts a PostView. */}}
+    {{template "post_media" .}}
+
+    <div class="reply-meta">
+      <a href="{{getPostURL .}}">{{.IndexedAt}}</a> from <span class="source">web</span>
+    </div>
+  </div>
+</div>
+{{end}}

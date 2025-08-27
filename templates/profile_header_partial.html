@@ -1,0 +1,31 @@
+{{/* profile_header_partial.html - reusable header for profile and timeline */}}
+{{if .Profile}}
+  <div class="profile-header">
+    {{/* Choose background with a clear if/else to avoid template parsing context errors */}}
+    {{if ne (bannerURL .Profile) ""}}
+      <div class="profile-header-bg" data-banner-url="{{bannerURL .Profile}}">
+    {{else}}
+      <div class="profile-header-bg sidebar-bg">
+    {{end}}
+        <div class="profile-header-bg-overlay"></div>
+        <div class="profile-header-content">
+          <div class="profile-avatar">
+            {{if hasAvatar .Profile}}
+              <img src="{{avatarURL .Profile}}" alt="{{getDisplayName .Profile}}" class="profile-avatar-img" />
+            {{else}}
+              <div class="profile-avatar-placeholder">👤</div>
+            {{end}}
+          </div>
+          <div class="profile-main">
+            <div class="profile-names">
+              <h1 class="profile-displayname">{{getDisplayName .Profile}}</h1>
+              <a class="handle" href="https://bsky.app/profile/{{.Profile.Handle}}" target="_blank" rel="noopener">@{{.Profile.Handle}}</a>
+            </div>
+            <div class="profile-update-box">
+              {{template "post_box_partial.html" .}}
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+{{end}}

@@ -1,0 +1,44 @@
+{{template "header.html" .}}
+
+    <div class="main-content">
+      <div class="content">
+        {{if .Profile}}
+        
+        <!-- Profile header (reused from profile) -->
+        {{template "profile_header_partial.html" .}}
+
+        <!-- Navigation tabs -->
+        <div class="timeline-nav">
+          <span class="active-tab">Archive</span>
+          <span class="tab">Replies</span>
+          <span class="tab">Recent</span>
+        </div>
+
+        <!-- Timeline feed -->
+        <div id="timeline-posts">
+          {{template "posts_list_partial.html" .}}
+        </div>
+
+        <!-- Load more container; will be updated via HTMX out-of-band swaps -->
+        <div id="timeline-more">
+          {{if .Posts.Cursor}}
+            <button hx-get="/htmx/timeline?cursor={{.Posts.Cursor}}" hx-target="#timeline-posts" hx-swap="beforeend" class="load-more-btn">Load more</button>
+          {{end}}
+        </div>
+        
+        {{else}}
+        <div class="post">
+          <div class="post-avatar">!</div>
+          <div class="post-content">
+            <div class="post-text error-text">Unable to load profile. Please sign in again.</div>
+          </div>
+        </div>
+        {{end}}
+      </div>
+
+{{template "sidebar.html" .}}
+
+    </div>
+
+
+{{template "footer.html" .}}

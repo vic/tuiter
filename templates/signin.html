@@ -1,0 +1,64 @@
+{{template "header.html" .}}
+
+    <div class="main-content">
+      <div class="content">
+        <div class="welcome-message">
+          <h2>Welcome to Tuiter 2006!</h2>
+          <br />
+          <p>Tuiter 2006 is a tribute to the early days of Twitter, using Bluesky's social protocol.</p>
+          <p>It is totally <a href="/about">free</a>, and will always be. Made out of Love, like all the good things.</p>
+        </div>
+
+        <div class="post">
+          <div class="post-content">
+            <h3>Early Alpha Preview</h3>
+            <br />
+            <p>You are most than welcome to try Tuiter 2006 right now!, just keep in mind it will evolve quickly. We still have to show a good looking fail whale on errors.</p>
+            <p><a href="/about">Feedback</a> is more than welcome, please share with your friends, let's get them out of X.</p>
+            <p>It currently looks like this:</p>
+            <div class="post-media">
+              <div class="media-images">
+                <a href="/static/tuiter1.png" target="_blank"><img class="post-image" src="/static/tuiter1.png"></img></a>
+                <a href="/static/tuiter2.png" target="_blank"><img class="post-image" src="/static/tuiter2.png"></img></a>
+                <a href="/static/tuiter3.png" target="_blank"><img class="post-image" src="/static/tuiter3.png"></img></a>
+                <a href="/static/tuiter4.png" target="_blank"><img class="post-image" src="/static/tuiter4.png"></img></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="post">
+          <div class="post-content">
+            <h5>Privacy Policy</h5>
+            <br />
+            <p>This site will NEVER ask you for your password. It uses Bluesky authentication and stores a cookie for keeping you signed.</p>
+            <p>No other data is saved, all your messages are sent directly to the Bluesky API.</p>
+            <p>The code for this site is <a href="https://tangled.sh/@oeiuwq.bsky.social/tuiter">opensource</a> under the Apache-2 license.</p>
+            <p>This service and its code is provided on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</p>
+          </div>
+        </div>
+
+      </div>
+      
+      <div class="sidebar">
+        <div class="signin-form">
+          <p>Sign in with your Bluesky account to get started!</p>
+          <form action="/login" method="post">
+            <div class="form-group">
+              <input type="text" id="identifier" name="identifier" placeholder="you.bsky.social">
+              <input type="submit" value="Log In" class="signin-btn">
+            </div>
+          </form>
+        </div>
+        
+        <div class="join-section">
+          <div class="note">💡 Uses Bluesky OAuth - we will never touch your password!</div>
+          <p>
+            If you don't already have a Bluesky account, create one <a href="https://bsky.app">HERE</a>.
+          </p>
+        </div>
+        
+      </div>
+    </div>
+
+{{template "footer.html" .}}

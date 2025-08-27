@@ -1,0 +1,26 @@
+{{define "replies_partial"}}
+<div class="child-replies" id="replies-container">
+  <h4>Replies</h4>
+  {{if .ThreadRoot}}
+    <div class="threaded-replies" id="threaded-replies">
+      {{ $root := wrapThread .ThreadRoot .ViewedURI }}
+      {{range $idx, $child := .ThreadRoot.Replies}}
+        {{if and $child.FeedDefs_ThreadViewPost (ne $child.FeedDefs_ThreadViewPost.Post.Uri $.ViewedURI)}}
+          {{template "thread_node" (wrapThread $child.FeedDefs_ThreadViewPost $.ViewedURI)}}
+        {{end}}
+      {{end}}
+    </div>
+    <div class="flat-list">
+      {{range .Replies}}
+        {{if ne .Uri $.ViewedURI}}
+          {{template "reply_item" .}}
+        {{end}}
+      {{end}}
+    </div>
+  {{else}}
+    {{range .Replies}}
+      {{template "reply_item" .}}
+    {{end}}
+  {{end}}
+</div>
+{{end}}

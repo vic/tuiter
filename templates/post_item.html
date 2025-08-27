@@ -1,0 +1,12 @@
+{{define "post_item"}}
+<div class="post">
+  {{/* dot is a dict {"Post": *bsky.FeedDefs_FeedViewPost, "PostsList": PostsList} */}}
+  {{ $post := .Post }}
+  {{ $pl := .PostsList }}
+  {{if isReply $post}}
+    {{template "post_item_reply" (dict "Post" $post "PostsList" $pl)}}
+  {{else}}
+    {{template "post_item_standard" (dict "Post" $post "PostsList" $pl)}}
+  {{end}}
+</div>
+{{end}}

@@ -1,0 +1,46 @@
+/* Tuiter 2006 base24 CSS variables
+   Generated from tuiter-2006-base24.yaml
+   This file defines color variables only. It should be loaded before the main style.css
+   Theme authors can replace variables by providing an alternate CSS generated from another YAML.
+*/
+:root {
+  --tuiter-bg: #9AE4E8; /* base00 - page background */
+  --tuiter-header-accent: #7DD0D5; /* base01 - header accent */
+  --tuiter-sidebar-bg: #C8E68A; /* base02 - sidebar background */
+  --tuiter-surface-warm: #fffef6; /* base03 - warm surface */
+  --tuiter-surface-cool: #f6fbff; /* base04 - cool surface */
+  --tuiter-card: #ffffff; /* base05 - card background */
+  --tuiter-surface-subtle: #fbfbfb; /* base06 */
+  --tuiter-input-bg: #f8f9fa; /* base07 - inputs, textarea */
+  --tuiter-brand: #00aced; /* base08 - primary brand blue */
+  --tuiter-link: #0066CC; /* base09 - links and handles */
+  --tuiter-accent: #6BB6FF; /* base0A - accent highlights */
+  --twitter-accent: var(--tuiter-accent); /* alias used for label hover backgrounds */
+  --tuiter-highlight: #FFCC33; /* base0B - viewed post highlight */
+  --tuiter-border-subtle: #E6E6E6; /* base0C - subtle borders */
+  --tuiter-border: #D0D0D0; /* base0D - main border */
+  --tuiter-border-muted: #CCCCCC; /* base0E - muted border */
+  --tuiter-text: #333333; /* base0F - primary text */
+  --tuiter-muted: #666666; /* base10 - muted text */
+  --tuiter-error: #C0392B; /* base11 - error red */
+  --tuiter-cyan-pale: #EAF9FB; /* base12 */
+  --tuiter-cyan-pale-2: #D6F4FB; /* base13 */
+  --tuiter-dark-teal: #0B2B33; /* base14 - contrast text */
+  --tuiter-handle-blue: #0A66C2; /* base15 - handle link */
+  --tuiter-join-bg: #99CCFF; /* base16 - join link bg */
+  --tuiter-join-hover: #88BBEE; /* base17 - join link hover */
+  --tuiter-divider: #E8E8E8; /* base18 - post divider */
+  --tuiter-avatar-bg: #DDDDDD; /* base19 - avatar placeholder */
+  --tuiter-thread-border: #DFDFDF; /* base20 - thread border */
+  --tuiter-toggle-active: #FFF4D6; /* base21 - toggle active bg */
+  --tuiter-media-black: #000000; /* base22 - media/video black */
+  --tuiter-white: #FFFFFF; /* base23 - utility white */
+
+  /* RGB helper variables for use with rgba(var(--<name>-rgb), <alpha>) */
+  --tuiter-media-black-rgb: 0,0,0;
+  --tuiter-white-rgb: 255,255,255;
+  --tuiter-text-rgb: 51,51,51; /* #333333 */
+  --tuiter-muted-rgb: 102,102,102; /* #666666 */
+  --tuiter-border-subtle-rgb: 230,230,230; /* #E6E6E6 */
+  --tuiter-border-rgb: 208,208,208; /* #D0D0D0 */
+}

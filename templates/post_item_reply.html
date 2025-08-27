@@ -1,0 +1,86 @@
+{{define "post_item_reply"}}
+  {{/* dot is dict {"Post": *bsky.FeedDefs_FeedViewPost, "PostsList": PostsList} */}}
+  {{ $root := dict "Post" .Post "PostsList" .PostsList }}
+
+  {{/* The reply UI shows a compact chat with available preview info. We need to use the inner PostView for recording text/author */}}
+  {{ $chain := getReplyChainInfos .Post.Post }}
+
+  <div class="reply-thread chat flattened">
+    {{ if gt (len $chain) 0 }}
+      {{/* show root/parent previews if present */}}
+      {{ range $idx, $pi := $chain }}
+        {{ if $pi.Uri }}
+          {{ $pv := index $.PostsList.ParentPreviews $pi.Uri }}
+          {{ if $pv.Uri }}
+            {{/* determine side: left if authored by the current post author, right otherwise */}}
+            {{ $isLeft := eq $pv.AuthorHandle $.Post.Post.Author.Handle }}
+            <div class="chat-node {{if $isLeft}}left{{else}}right{{end}} compact">
+              {{ if $isLeft }}
+                <div class="chat-avatar">
+                  {{ if $pv.Avatar }}<img src="{{$pv.Avatar}}" alt="{{$pv.AuthorHandle}}" />{{ else }}<div class="avatar-placeholder"></div>{{ end }}
+                </div>
+                <div class="chat-bubble small">
+                  <div class="chat-author"><a href="{{getProfileURL $pv.AuthorHandle}}">{{ $pv.AuthorHandle }}</a></div>
+                  <div class="chat-text">{{ $pv.Text }}</div>
+                  {{ if $pv.PostURL }}<div class="chat-meta"><a href="{{$pv.PostURL}}">{{ $pv.IndexedAt }}</a></div>{{ end }}
+
+                  {{template "rt_button" (dict "Class" "chat-rt-button side-left" "Count" $pv.RepostCount "IsRt" $pv.IsFav) }}
+                  {{template "fav_button" (dict "Class" "chat-fav-button side-left" "Count" $pv.LikeCount "IsFav" $pv.IsFav) }}
+                  {{template "reply_button" (dict "Class" "chat-reply-button side-left" "Count" $pv.ReplyCount "IsLeft" true) }}
+                </div>
+                {{/* Render any media for parent previews below their bubble, aligned with node side */}}
+                {{ if $pv.Media }}
+                  <div class="chat-media">
+                    {{ template "post_media" $pv.Media }}
+                  </div>
+                {{ end }}
+              {{ else }}
+                <div class="chat-bubble small">
+                  <div class="chat-author"><a href="{{getProfileURL $pv.AuthorHandle}}">{{ $pv.AuthorHandle }}</a></div>
+                  <div class="chat-text">{{ $pv.Text }}</div>
+                  {{ if $pv.PostURL }}<div class="chat-meta"><a href="{{$pv.PostURL}}">{{ $pv.IndexedAt }}</a></div>{{ end }}
+
+                  {{template "rt_button" (dict "Class" "chat-rt-button side-right" "Count" $pv.RepostCount "IsRt" $pv.IsFav) }}
+                  {{template "fav_button" (dict "Class" "chat-fav-button side-right" "Count" $pv.LikeCount "IsFav" $pv.IsFav) }}
+                  {{template "reply_button" (dict "Class" "chat-reply-button side-right" "Count" $pv.ReplyCount "IsLeft" false) }}
+                </div>
+                <div class="chat-avatar">
+                  {{ if $pv.Avatar }}<img src="{{$pv.Avatar}}" alt="{{$pv.AuthorHandle}}" />{{ else }}<div class="avatar-placeholder"></div>{{ end }}
+                </div>
+                {{/* Render parent media on right-side node as well */}}
+                {{ if $pv.Media }}
+                  <div class="chat-media">
+                    {{ template "post_media" $pv.Media }}
+                  </div>
+                {{ end }}
+              {{ end }}
+            </div>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+
+    {{/* the current post should be shown as the left-side (authored by the viewed actor) */}}
+    <div class="chat-node left compact current-post">
+      <div class="chat-avatar">
+        {{ $a := AvatarURL .Post.Post }}
+        {{ if $a }}<img src="{{$a}}" alt="{{ .Post.Post.Author.Handle }}" />{{ else }}<div class="avatar-placeholder"></div>{{ end }}
+      </div>
+      <div class="chat-bubble small">
+        <div class="chat-author"><a href="{{getProfileURL .Post.Post.Author}}">{{ .Post.Post.Author.Handle }}</a></div>
+        <div class="chat-text">{{getPostText .Post.Post.Record}}</div>
+        {{ if .Post.Post.Uri }}<div class="chat-meta"><a href="{{getPostURL .Post.Post}}">{{ .Post.Post.IndexedAt }}</a></div>{{ end }}
+
+        <!-- reply button for current left bubble -->
+        {{template "fav_button" (dict "Class" "chat-fav-button side-left" "Count" (getLikeCount .Post.Post) "IsFav" (getIsFav .Post.Post)) }}
+        {{template "reply_button" (dict "Class" "chat-reply-button side-left" "Count" (.Post.Post.ReplyCount) "IsLeft" true) }}
+      </div>
+
+      {{/* Render embedded media (images, video, external link cards) below the bubble. The shared "post_media" fragment expects a *bsky.FeedDefs_PostView, so pass .Post.Post. */}}
+      <div class="chat-media">
+        {{ template "post_media" .Post.Post }}
+      </div>
+    </div>
+  </div>
+
+{{end}}

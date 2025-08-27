@@ -1,0 +1,51 @@
+{{define "post_item_standard"}}
+  {{/* Render non-reply (standard) posts. Placing avatar as a sibling to the content so outer .post (display:flex) aligns items properly. */}}
+  <div class="post-avatar">
+    <a href="{{getProfileURL .Post.Post.Author}}"><img src="{{.Post.Post.Author.Avatar}}" alt="{{getDisplayName .Post.Post.Author}}" class="post-author-img"/></a>
+  </div>
+
+  <div class="post-content post-card">
+    <div class="post-row">
+      <div class="post-head">
+        <a href="{{getProfileURL .Post.Post.Author}}" class="post-author">{{getDisplayName .Post.Post.Author}}</a>
+        <span class="post-handle">@{{.Post.Post.Author.Handle}}</span>
+        <div class="post-meta-inline">
+          <a href="{{getPostURL .Post.Post}}">{{.Post.Post.IndexedAt}}</a> from web
+        </div>
+      </div>
+
+      <div class="post-body">
+        <div class="post-text">{{getPostText .Post.Post.Record}}</div>
+
+        {{/* media rendering: images, video, external link preview */}}
+        {{template "post_media" .Post.Post}}
+
+        {{/* embedded quoted/retweeted record handling */}}
+        {{if isPostQuote .Post}}
+          {{$e := getEmbedRecord .Post.Post}}
+          {{if $e}}
+            {{template "quoted_tweet" (embedContext .Post.Post $e)}}
+          {{end}}
+        {{else if isPostRetweet .Post}}
+          {{$e := getEmbedRecord .Post.Post}}
+          {{if $e}}
+            {{template "retweeted_tweet" (embedContext .Post.Post $e)}}
+          {{end}}
+        {{end}}
+
+        {{/* display reply link if there are replies (kept minimal) */}}
+        {{if .Post.Post.ReplyCount}}
+          <div class="post-actions">
+            <a href="{{getPostURL .Post.Post}}">in reply to {{.Post.Post.Author.Handle}}</a>
+          </div>
+        {{end}}
+      </div>
+
+    </div>
+
+    {{template "rt_button" (dict "Class" "" "Count" (.Post.Post.RepostCount) "IsRt" (getIsFav .Post.Post)) }}
+    {{template "fav_button" (dict "Class" "" "Count" (getLikeCount .Post.Post) "IsFav" (getIsFav .Post.Post)) }}
+    {{template "reply_button" (dict "Class" "" "Count" .Post.Post.ReplyCount "IsLeft" true) }}
+
+  </div>
+{{end}}

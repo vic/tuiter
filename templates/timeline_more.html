@@ -1,0 +1,5 @@
+<div id="timeline-more" hx-swap-oob="innerHTML">
+  {{if .Cursor}}
+    <button hx-get="/htmx/timeline?cursor={{.Cursor}}" hx-target="#timeline-posts" hx-swap="beforeend" class="load-more-btn">Load more</button>
+  {{end}}
+</div>

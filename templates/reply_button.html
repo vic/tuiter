@@ -1,0 +1,7 @@
+{{define "reply_button"}}
+{{/* dot is a dict {"Class": *string, "Count": int, "IsLeft": bool, "IsActive": bool} */}}
+<div class="reply-button {{.Class}} {{if .IsActive}}active{{else}}{{end}}" aria-hidden="false" title="Reply">
+    <button class="reply-btn" aria-label="Reply">{{if .IsLeft}}↩{{else}}↪{{end}}</button>
+    <span class="reply-count">{{.Count}}</span>
+</div>
+{{end}}

@@ -1,0 +1,11 @@
+{{/* Partial that renders the list of timeline posts. Used by HTMX to refresh the feed. */}}
+{{if .Posts.Items}}
+  {{template "posts_list_partial.html" .Posts}}
+{{else}}
+  <div class="post">
+    <div class="post-avatar">📱</div>
+    <div class="post-content">
+      <div class="post-text">No updates available in your timeline yet.</div>
+    </div>
+  </div>
+{{end}}

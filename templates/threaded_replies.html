@@ -1,0 +1,46 @@
+{{define "thread_node"}}
+{{/* If this node is the viewed post, skip rendering the box and render children only */}}
+{{if eq .Post.Post.Uri .ViewedURI}}
+  {{if .Post.Replies}}
+    <div class="thread-children">
+      {{ $parent := . }}
+      {{range $idx, $r := .Post.Replies}}
+        {{if $r.FeedDefs_ThreadViewPost}}
+          {{template "thread_node" (wrapThread $r.FeedDefs_ThreadViewPost $parent.ViewedURI)}}
+        {{end}}
+      {{end}}
+    </div>
+  {{end}}
+{{else}}
+<div class="thread-node" id="{{makeElementID .Post.Post.Uri}}">
+  <div class="thread-avatar">
+    <a href="{{getProfileURL .Post.Post.Author}}">
+      {{if hasAvatar .Post.Post.Author}}
+        <img src="{{avatarURL .Post.Post.Author}}" alt="{{getDisplayName .Post.Post.Author}}" />
+      {{else}}
+        👤
+      {{end}}
+    </a>
+  </div>
+  <div class="thread-content {{if eq .Post.Post.Uri .ViewedURI}}highlighted-post{{end}}">
+    <a href="{{getProfileURL .Post.Post.Author}}" class="reply-author">{{getDisplayName .Post.Post.Author}}</a>
+    <div class="reply-text">{{getPostText .Post.Post.Record}}</div>
+
+    {{/* Render embedded media for this thread node */}}
+    {{template "post_media" .Post.Post}}
+
+    <div class="reply-meta"><a href="{{getPostURL .Post.Post}}">{{.Post.Post.IndexedAt}}</a></div>
+  </div>
+</div>
+{{if .Post.Replies}}
+  <div class="thread-children">
+    {{ $parent := . }}
+    {{range $idx, $r := .Post.Replies}}
+      {{if $r.FeedDefs_ThreadViewPost}}
+        {{template "thread_node" (wrapThread $r.FeedDefs_ThreadViewPost $parent.ViewedURI)}}
+      {{end}}
+    {{end}}
+  </div>
+{{end}}
+{{end}}
+{{end}}

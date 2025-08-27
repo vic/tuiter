@@ -1,0 +1,45 @@
+# Tuiter 2006 base24 color scheme (default)
+# This file follows the base24 layout used by tinted-theming/schemes (spec-0.11)
+# Colors chosen to match the current Tuiter 2006 retro palette.
+# Theme authors: supply a replacement YAML with same keys to generate alternate themes.
+
+scheme: tuiter-2006-base24
+author: auto-generated
+
+# base00..base23 - semantic palette for theme tooling
+base00: "#9AE4E8"  # page background (main body)
+base01: "#7DD0D5"  # header accent / subtle border
+base02: "#C8E68A"  # sidebar background
+base03: "#fffef6"  # warm light surface (panels)
+base04: "#f6fbff"  # cool light surface (alternate panels)
+base05: "#ffffff"  # primary card background
+base06: "#fbfbfb"  # subtle surface / form background
+base07: "#f8f9fa"  # input / textarea background
+base08: "#00aced"  # brand blue (primary brand color)
+base09: "#0066CC"  # link / handle blue
+base0A: "#6BB6FF"  # accent blue (buttons / highlights)
+base0B: "#FFCC33"  # accent yellow (highlights, viewed post)
+base0C: "#E6E6E6"  # subtle borders, dividers
+base0D: "#D0D0D0"  # secondary border
+base0E: "#CCCCCC"  # muted borders / disabled
+base0F: "#333333"  # primary text color
+base10: "#666666"  # muted text
+base11: "#C0392B"  # error / danger red
+base12: "#EAF9FB"  # pale cyan (decorative)
+base13: "#D6F4FB"  # pale cyan 2 (decorative)
+base14: "#0B2B33"  # dark teal (contrast text)
+base15: "#0A66C2"  # secondary handle blue
+base16: "#99CCFF"  # join-link background
+base17: "#88BBEE"  # join-link hover
+base18: "#E8E8E8"  # post divider
+base19: "#DDDDDD"  # avatar / placeholder background
+base20: "#DFDFDF"  # thread border
+base21: "#FFF4D6"  # toggle active background
+base22: "#000000"  # media/video black
+base23: "#FFFFFF"  # pure white (utility)
+
+# Notes for theme creators:
+# - Map your base16 colors to these base24 slots to approximate the Tuiter UI.
+# - base00..base07 typically control background and surface tones; base08..base0F control accents & text.
+# - Semantic mapping in the CSS uses these bases (brand, link, bg, muted, accent, card, border, etc.).
+# - See the styling guide: https://github.com/tinted-theming/home/blob/main/styling.md

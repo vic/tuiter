@@ -1,0 +1,19 @@
+{{define "retweeted_tweet"}}
+{{with .}}
+<div class="retweeted-tweet">
+  <a href="{{getPostURL .Parent}}" class="rt-label rt-label-link" title="{{getDisplayName .Parent.Author}} retweeted {{getDisplayName .Embed.Author}}">RT</a>
+  <span class="retweeted-avatar">
+    {{if .Embed.Author.Avatar}}
+      <a href="{{getProfileURL .Embed.Author}}"><img src="{{.Embed.Author.Avatar}}" alt="{{getDisplayName .Embed.Author}}" class="retweeted-avatar-img" /></a>
+    {{else}}
+      <a href="{{getProfileURL .Embed.Author}}">👤</a>
+    {{end}}
+  </span>
+  <a href="{{getProfileURL .Embed.Author}}" class="retweeted-author-name">{{getDisplayName .Embed.Author}}</a>
+  <span class="retweeted-text">{{getPostText .Embed.Value}}</span>
+
+  {{/* Render media for the retweeted record if present */}}
+  {{template "post_media" .Parent}}
+</div>
+{{end}}
+{{end}}

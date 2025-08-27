@@ -1,0 +1,7 @@
+{{define "rt_button"}}
+{{/* dot is a dict {"Class": *string, "Count": int, "IsRt": bool} */}}
+<div class="rt-button {{.Class}} {{if .IsRt}}active{{else}}{{end}}" aria-hidden="false" title="Retweet">
+    <button class="rt-btn" aria-label="rt">{{if .IsRt}}♻{{else}}♲{{end}}</button>
+    <span class="rt-count">{{.Count}}</span>
+</div>
+{{end}}

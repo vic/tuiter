@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tuiter 2006</title>
+  <link rel="stylesheet" href="/static/tuiter-2006-base24.css">
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+  <script src="/static/app.js"></script>
+</head>
+<body>
+  <div class="container" {{if .SignedIn}}data-signed-in-avatar="{{.SignedIn.Avatar}}"{{end}}>
+    <div class="header">
+      <h1><a href="/">Tuiter 2006</a></h1>
+      <div class="header-nav">
+        {{if .SignedIn}}
+        <a href="/">Home</a> |
+        <a href="/about">About Tuiter2006</a> |
+        <a href="/profile/{{.SignedIn.Handle}}">Your profile</a> |
+        <a href="#">Invite</a> |
+        <a href="https://bsky.app/profile/{{.SignedIn.Handle}}">@{{.SignedIn.Handle}}</a> |
+        <a href="/logout">Sign out</a>
+        {{else}}
+        <a href="/">Home</a> |
+        <a href="/about">About Tuiter2006</a> |
+        <a href="#">Invite</a> |
+        <a href="/signin">Sign in</a>
+        {{end}}
+      </div>
+    </div>

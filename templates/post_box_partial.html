@@ -1,0 +1,18 @@
+{{define "post_box_partial.html"}}
+<div class="post-box">
+  <div class="post-box-header">
+    <h3>{{if .PostBoxHandle}}Mention {{.PostBoxHandle}}{{else}}What are you doing?{{end}}</h3>
+    <span class="char-count">Characters available: <span id="char-count">140</span></span>
+  </div>
+  <form class="post-box-form" hx-post="/timeline/post" hx-target="#timeline-posts" hx-swap="innerHTML">
+    <textarea name="status" id="status-input"
+      placeholder="{{postBoxPlaceholder .PostBoxHandle}}"
+      maxlength="140"
+      class="post-box-textarea" data-maxlength="140"
+    >{{postBoxInitial .PostBoxHandle}}</textarea>
+    <div class="post-box-actions">
+      <button type="submit" class="update-btn update-btn-large">update</button>
+    </div>
+  </form>
+</div>
+{{end}}

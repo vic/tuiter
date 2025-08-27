@@ -1,0 +1,37 @@
+{{define "post_media"}}
+  {{/* Accept either a *bsky.FeedDefs_PostView or a *MediaVM */}}
+  {{ $media := getMediaForTemplate . }}
+  {{ if $media }}
+    <div class="post-media">
+      {{ if $media.Images }}
+        <div class="media-images">
+          {{ range $idx, $img := $media.Images }}
+            <a href="{{ $img.Full }}" target="_blank"><img src="{{ $img.Thumb }}" alt="{{ $img.Alt }}" class="post-image" /></a>
+          {{ end }}
+        </div>
+      {{ end }}
+
+      {{ if $media.Video }}
+        <div class="media-video">
+          {{ if $media.Video.Thumb }}
+            <a href="{{if ne $media.Video.OwnerDid ""}}/video/{{ $media.Video.OwnerDid }}/{{ $media.Video.Cid }}{{else}}/video/{{ $media.Video.Cid }}{{end}}" data-mime="video/mp4"><img src="{{ $media.Video.Thumb }}" alt="video thumbnail" class="post-video-thumb" /></a>
+          {{ else }}
+            <a href="{{if ne $media.Video.OwnerDid ""}}/video/{{ $media.Video.OwnerDid }}/{{ $media.Video.Cid }}{{else}}/video/{{ $media.Video.Cid }}{{end}}" data-mime="video/mp4">[video]</a>
+          {{ end }}
+        </div>
+      {{ end }}
+
+      {{ if $media.External }}
+        <div class="media-external">
+          <a href="{{ $media.External.Uri }}" target="_blank" class="external-link-card">
+            {{ if $media.External.Thumb }}<img src="{{ $media.External.Thumb }}" alt="thumb" class="external-thumb" />{{ end }}
+            <div class="external-meta">
+              <strong>{{ $media.External.Title }}</strong>
+              <div class="external-desc">{{ $media.External.Description }}</div>
+            </div>
+          </a>
+        </div>
+      {{ end }}
+    </div>
+  {{ end }}
+{{end}}

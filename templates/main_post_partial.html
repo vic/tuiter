@@ -1,0 +1,24 @@
+{{define "main_post"}}
+<div id="{{makeElementID .Post.Uri}}" class="main-post {{if eq .Post.Uri .ViewedURI}}highlighted-post{{end}}">
+  <div class="post-avatar">
+    <a href="{{getProfileURL .Post.Author}}">
+      {{if hasAvatar .Post.Author}}
+        <img src="{{avatarURL .Post.Author}}" alt="{{getDisplayName .Post.Author}}" />
+      {{else}}
+        👤
+      {{end}}
+    </a>
+  </div>
+  <div class="post-content">
+    <h3 class="post-author-name">{{getDisplayName .Post.Author}}</h3>
+    <div class="post-text">{{getPostText .Post.Record}}</div>
+
+    {{/* Render embedded media using the shared fragment. Styles can target .main-post .post-media separately. */}}
+    {{template "post_media" .Post}}
+
+    <div class="post-meta">
+      <a href="{{getPostURL .Post}}">{{.Post.IndexedAt}}</a> from web
+    </div>
+  </div>
+</div>
+{{end}}

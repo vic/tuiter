@@ -1,0 +1,2053 @@
+.qt-label-link, .rt-label-link {
+  text-decoration: none;
+  color: var(--tuiter-muted);
+  cursor: pointer;
+}
+.qt-label-link:hover, .rt-label-link:hover {
+  color: var(--tuiter-text);
+  text-decoration: none;
+}
+/* Quoted/Retweeted tweet box */
+.quoted-tweet, .retweeted-tweet {
+  margin: 2px 0 0 8px;
+  padding: 6px 8px;
+  background: var(--tuiter-surface-warm);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+
+/* QT/RT label */
+.qt-label, .rt-label {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: var(--tuiter-muted);
+  margin-right: 8px;
+}
+
+/* Quoted/retweeted avatar */
+.quoted-avatar, .retweeted-avatar {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+.quoted-avatar-img, .retweeted-avatar-img {
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Quoted/retweeted author name */
+.quoted-author-name, .retweeted-author-name {
+  font-weight: bold;
+  color: var(--tuiter-text);
+  margin-right: 6px;
+  text-decoration: none;
+  font-size: 11px;
+}
+.quoted-text, .retweeted-text {
+  color: var(--tuiter-text);
+}
+/* Sidebar background color for profile header fallback */
+.sidebar-bg {
+  background-color: var(--tuiter-sidebar-bg);
+}
+/* Profile header background */
+.profile-header-bg {
+  position: relative;
+  width: 100%;
+  min-height: 260px;
+  background-size: cover;
+  background-position: center;
+}
+
+.profile-header-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(var(--tuiter-media-black-rgb),0.15);
+}
+
+.profile-header-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px;
+}
+
+.profile-main {
+  color: var(--tuiter-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.profile-names {
+  margin-bottom: 0.7em;
+}
+
+.profile-displayname {
+  margin-bottom: 0.2em;
+  font-size: 2.2em;
+  font-weight: bold;
+}
+
+.handle {
+  font-size: 2em;
+  font-weight: bold;
+  color: var(--tuiter-text);
+  background: rgba(var(--tuiter-white-rgb),0.85);
+  padding: 0.2em 0.5em;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(var(--tuiter-media-black-rgb),0.12);
+  display: inline-block;
+}
+
+.profile-update-box {
+  text-shadow: none;
+  margin-top: 2.5em;
+}
+/* 2006 Twitter Tribute - Authentic Styling */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--tuiter-bg);
+    background-image: radial-gradient(circle at 10% 10%, rgba(var(--tuiter-white-rgb),0.10) 0.35rem, transparent 0.5rem),
+                      radial-gradient(circle at 90% 20%, rgba(var(--tuiter-white-rgb),0.08) 0.45rem, transparent 0.6rem),
+                      radial-gradient(circle at 30% 80%, rgba(var(--tuiter-white-rgb),0.06) 0.25rem, transparent 0.4rem);
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+    font-size: 11px;
+    color: var(--tuiter-text);
+    min-height: 100vh;
+}
+
+/* Header with logo */
+.header {
+    background: var(--tuiter-bg);
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--tuiter-header-accent);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header h1 a {
+    color: var(--tuiter-white);
+    text-decoration: none;
+    text-shadow: 1px 1px 2px rgba(var(--tuiter-media-black-rgb),0.3);
+}
+
+/* Header navigation */
+.header-nav {
+    font-size: 11px;
+}
+
+.header-nav a {
+    color: var(--tuiter-text);
+    text-decoration: none;
+    margin: 0 2px;
+}
+
+.header-nav a:hover {
+    text-decoration: underline;
+}
+
+/* Search area in header */
+.search-area {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 11px;
+}
+
+.search-area input[type="text"] {
+    width: 150px;
+    padding: 2px 4px;
+    border: 1px solid var(--tuiter-border-muted);
+    font-size: 11px;
+    background: var(--tuiter-white);
+}
+
+.search-area button {
+    padding: 2px 6px;
+    border: 1px solid var(--tuiter-border-muted);
+    background: var(--tuiter-input-bg);
+    font-size: 11px;
+    cursor: pointer;
+    margin-left: 2px;
+}
+
+.search-area a {
+    color: var(--tuiter-link);
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.search-area a:hover {
+    text-decoration: underline;
+}
+
+/* Main container */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Two column layout */
+.main-content {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* Left column - main content */
+.content {
+    flex: 1;
+    background: var(--tuiter-card);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(var(--tuiter-media-black-rgb),0.1);
+    min-height: 400px;
+    max-width: 80%;
+}
+
+/* Right column - sidebar */
+.sidebar {
+    width: 250px;
+    background: var(--tuiter-sidebar-bg);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(var(--tuiter-media-black-rgb),0.1);
+}
+
+/* Welcome message */
+.welcome-message {
+    font-size: 13px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    color: var(--tuiter-text);
+}
+
+.welcome-message .highlight {
+    background-color: var(--tuiter-highlight);
+    padding: 1px 2px;
+}
+
+/* Timeline styles */
+.timeline-intro {
+    font-size: 12px;
+    margin-bottom: 20px;
+    color: var(--tuiter-muted);
+}
+
+.timeline-intro a {
+    color: var(--tuiter-link);
+    text-decoration: underline;
+}
+
+.post {
+    border-bottom: 1px solid var(--tuiter-divider);
+    padding: 12px 0;
+    display: flex;
+    gap: 10px;
+}
+
+.post-avatar img {
+    width: 24px;
+    height: 24px;
+    background: var(--tuiter-avatar-bg);
+    border: 1px solid var(--tuiter-border-muted);
+    border-radius: 2px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: var(--tuiter-muted);
+}
+
+.post-author {
+    font-weight: bold;
+    color: var(--tuiter-link);
+    text-decoration: none;
+    font-size: 11px;
+}
+
+.post-author:hover {
+    text-decoration: underline;
+}
+
+.post-text {
+    margin-top: 2px;
+    font-size: 11px;
+    line-height: 1.3;
+    color: var(--tuiter-text);
+}
+
+.post-meta {
+    font-size: 10px;
+    color: var(--tuiter-muted);
+    margin-top: 3px;
+}
+
+.post-meta a {
+    color: var(--tuiter-link);
+    text-decoration: none;
+}
+
+.post-meta a:hover {
+    text-decoration: underline;
+}
+
+/* Sidebar styles */
+.sidebar h3 {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--tuiter-text);
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(var(--tuiter-media-black-rgb),0.08);
+    padding-bottom: 3px;
+}
+
+/* About section */
+.about-section {
+    margin-bottom: 20px;
+}
+
+.about-section .profile-pic {
+    width: 48px;
+    height: 48px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.about-section .profile-pic img {
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--tuiter-border-muted);
+    border-radius: 2px;
+}
+
+.about-section .profile-pic a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--tuiter-avatar-bg);
+    border: 1px solid var(--tuiter-border-muted);
+    border-radius: 2px;
+    font-size: 20px;
+    color: var(--tuiter-muted);
+    text-decoration: none;
+}
+
+.about-section .profile-info {
+    overflow: hidden;
+    font-size: 11px;
+    line-height: 1.3;
+}
+
+.about-section .profile-info strong a {
+    color: var(--tuiter-link);
+    text-decoration: none;
+}
+
+.about-section .profile-info strong a:hover {
+    text-decoration: underline;
+}
+
+.stats {
+    clear: both;
+    margin-top: 10px;
+    font-size: 11px;
+}
+
+.stat-line {
+    margin-bottom: 2px;
+}
+
+.stat-label {
+    color: var(--tuiter-muted);
+}
+
+.stat-value {
+    font-weight: bold;
+    color: var(--tuiter-text);
+}
+
+/* Following section */
+.following-section {
+    margin-bottom: 20px;
+}
+
+.following-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3px;
+    margin-top: 8px;
+}
+
+.following-avatar {
+    width: 36px;
+    height: 36px;
+}
+
+.following-avatar img {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--tuiter-border-muted);
+    border-radius: 2px;
+}
+
+.following-avatar a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--tuiter-avatar-bg);
+    border: 1px solid var(--tuiter-border-muted);
+    border-radius: 2px;
+    font-size: 12px;
+    color: var(--tuiter-muted);
+    text-decoration: none;
+}
+
+/* Actions */
+.actions {
+    margin-top: 15px;
+}
+
+.update-button {
+    display: block;
+    background: var(--tuiter-input-bg);
+    border: 1px solid var(--tuiter-border-muted);
+    padding: 6px 12px;
+    font-size: 11px;
+    color: var(--tuiter-text);
+    text-decoration: none;
+    text-align: center;
+    border-radius: 3px;
+    margin-bottom: 8px;
+}
+
+.update-button:hover {
+    background: rgba(var(--tuiter-media-black-rgb),0.03);
+}
+
+.logout-btn {
+    display: block;
+    font-size: 10px;
+    color: var(--tuiter-muted);
+    text-decoration: none;
+    text-align: center;
+}
+
+.logout-btn:hover {
+    text-decoration: underline;
+}
+
+/* Sign in form */
+.signin-form {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 8px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 11px;
+    color: var(--tuiter-text);
+    margin-bottom: 2px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 3px 4px;
+    border: 1px solid var(--tuiter-border-muted);
+    font-size: 11px;
+    background: var(--tuiter-white);
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus {
+    outline: none;
+    border-color: var(--tuiter-link);
+}
+
+.checkbox-group {
+    margin: 8px 0;
+    font-size: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 4px;
+}
+
+.checkbox-group a {
+    color: var(--tuiter-link);
+    text-decoration: none;
+}
+
+.checkbox-group a:hover {
+    text-decoration: underline;
+}
+
+.signin-btn {
+    background: var(--tuiter-input-bg);
+    border: 1px solid var(--tuiter-border-muted);
+    padding: 4px 8px;
+    font-size: 11px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.signin-btn:hover {
+    background: rgba(var(--tuiter-media-black-rgb),0.03);
+}
+
+/* Join section */
+.join-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.join-link {
+    display: block;
+    background: var(--tuiter-join-bg);
+    color: var(--tuiter-dark-teal);
+    padding: 6px 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 11px;
+    border-radius: 3px;
+    margin-bottom: 5px;
+}
+
+.join-link:hover {
+    background: var(--tuiter-join-hover);
+}
+
+.join-subtext {
+    font-size: 10px;
+    color: var(--tuiter-muted);
+    line-height: 1.2;
+}
+
+.join-subtext a {
+    color: var(--tuiter-link);
+    text-decoration: none;
+}
+
+.join-subtext a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 10px;
+    color: var(--tuiter-muted);
+}
+
+/* Post form */
+.post-form {
+    margin-bottom: 20px;
+}
+
+.post-form textarea {
+    width: 100%;
+    height: 60px;
+    padding: 5px;
+    border: 1px solid var(--tuiter-border-muted);
+    font-family: inherit;
+    font-size: 11px;
+    resize: vertical;
+}
+
+.post-form button {
+    background: var(--tuiter-join-bg);
+    border: 1px solid var(--tuiter-link);
+    padding: 4px 12px;
+    font-size: 11px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.post-form button:hover {
+    background: var(--tuiter-join-hover);
+}
+
+/* Timeline Post Box - 2006 Twitter Style */
+.post-box {
+    background: rgba(var(--tuiter-white-rgb),0.90);
+    border: 1px solid var(--tuiter-border);
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.post-box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.post-box-header h3 {
+    color: var(--tuiter-text);
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.char-count {
+    font-size: 11px;
+    color: var(--tuiter-muted);
+}
+
+.post-box textarea {
+    width: 100%;
+    min-height: 60px;
+    padding: 6px;
+    font-size: 13px;
+    border: 1px solid var(--tuiter-border-muted);
+    border-radius: 4px;
+    resize: vertical;
+    background: var(--tuiter-white);
+}
+
+.post-box textarea:focus {
+    border-color: var(--tuiter-accent);
+    outline: none;
+}
+
+.post-box-actions {
+    margin-top: 6px;
+    text-align: right;
+}
+
+.update-btn {
+    background: var(--tuiter-input-bg);
+    border: 1px solid var(--tuiter-border-muted);
+    padding: 6px 10px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* Generic error text */
+.error-text {
+    color: var(--tuiter-error);
+}
+.no-posts {
+    padding: 12px 0;
+    color: var(--tuiter-muted);
+}
+
+/* Profile header */
+.profile-header {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+.profile-avatar {
+    flex: 0 0 96px;
+}
+.profile-avatar img {
+    width: 96px;
+    height: 96px;
+    border: 1px solid var(--tuiter-border-muted);
+    border-radius: 2px;
+    display: block;
+}
+.profile-avatar-placeholder {
+    width: 96px;
+    height: 96px;
+    background: var(--tuiter-avatar-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--tuiter-border-muted);
+    border-radius: 2px;
+    font-size: 36px;
+}
+.profile-main {
+    flex: 1;
+}
+.profile-main h1 {
+    font-size: 28px;
+    margin-bottom: 6px;
+}
+.handle {
+    font-size: 14px;
+    color: var(--tuiter-muted);
+    margin-bottom: 8px;
+}
+.handle {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--tuiter-text);
+    background: rgba(var(--tuiter-white-rgb),0.85);
+    padding: 0.2em 0.5em;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(var(--tuiter-media-black-rgb),0.12);
+    display: inline-block;
+}
+
+.bio pre {
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1.4;
+    white-space: pre-wrap;
+    margin: 0 0 10px 0;
+}
+.stats .stat {
+    margin-right: 12px;
+    font-size: 13px;
+    color: var(--tuiter-text);
+}
+
+/* Replies */
+.reply-post, .reply-avatar, .reply-content {
+    display: flex;
+    gap: 8px;
+}
+.reply-post {
+    padding: 8px 0;
+    border-top: 1px solid rgba(var(--tuiter-media-black-rgb),0.04);
+}
+.reply-avatar img {
+    width: 24px;
+    height: 24px;
+}
+.reply-author {
+    font-weight: bold;
+    color: var(--tuiter-link);
+    text-decoration: none;
+}
+.reply-text {
+    margin-left: 6px;
+}
+
+/* View toggle */
+.view-toggle {
+    margin: 8px 0;
+}
+.toggle-btn {
+    background: var(--tuiter-surface-subtle);
+    border: 1px solid var(--tuiter-border);
+    padding: 4px 8px;
+    margin-left: 6px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 12px;
+}
+.toggle-btn.active {
+    background: var(--tuiter-toggle-active);
+    border-color: var(--tuiter-highlight);
+}
+
+/* Flat-view makes replies render as a flat chronological list */
+.child-replies.flat-view .reply-post {
+    margin-left: 0;
+    border-left: none;
+    background: transparent;
+}
+
+/* reduce indentation for nested default */
+.child-replies .reply-post {
+    margin-left: 12px;
+}
+
+/* control flat/nested visibility */
+.child-replies .flat-list { display: none; }
+.child-replies.flat-view .threaded-replies { display: none; }
+.child-replies.flat-view .flat-list { display: block; }
+/* ensure flat-list items look like normal replies */
+.flat-list .reply-post { border-top: 1px solid var(--tuiter-divider); padding: 8px 0; display: flex; gap: 8px; }
+
+/* Small helper classes */
+.note {
+    font-size: 9px;
+    color: var(--tuiter-muted);
+    margin-top: 8px;
+}
+
+/* Footer spacing */
+footer {
+    margin-top: 12px;
+}
+
+/* Conversation chain (parent/ancestor posts) - IRC/Google Wave style */
+.conversation-chain {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 10px 0 14px 0;
+    position: relative;
+    padding-left: 44px; /* space for avatar + connector */
+}
+
+/* vertical connector line running alongside the chain */
+.conversation-chain::before {
+    content: "";
+    position: absolute;
+    left: 28px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: var(--tuiter-border-subtle);
+    border-radius: 2px;
+}
+
+.chain-item {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    padding: 6px 8px;
+    border-radius: 6px;
+    box-shadow: 0 1px 0 rgba(var(--tuiter-media-black-rgb),0.02) inset;
+}
+
+/* alternating subtle backgrounds to mimic chat bubbles */
+.conversation-chain .chain-item:nth-child(odd) {
+    background: var(--tuiter-surface-warm); /* warm */
+}
+.conversation-chain .chain-item:nth-child(even) {
+    background: var(--tuiter-surface-cool); /* cool */
+}
+
+.chain-avatar {
+    position: absolute;
+    left: 0;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.chain-avatar img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(var(--tuiter-media-black-rgb),0.06);
+}
+
+.chain-content {
+    margin-left: 4px;
+}
+.chain-author {
+    font-weight: 700;
+    color: var(--tuiter-handle-blue);
+    text-decoration: none;
+    font-size: 12px;
+}
+.chain-author:hover { text-decoration: underline; }
+.chain-text {
+    margin-top: 3px;
+    font-size: 12px;
+    line-height: 1.3;
+    color: var(--tuiter-text);
+}
+.chain-meta {
+    margin-top: 4px;
+    font-size: 11px;
+    color: var(--tuiter-muted);
+}
+
+/* compact chain layout on small viewports */
+@media (max-width: 800px) {
+    .conversation-chain {
+        padding-left: 44px;
+    }
+    .conversation-chain::before { left: 28px; }
+    .chain-avatar { left: 0; }
+}
+
+/* Highlight the viewed post */
+.highlighted-post {
+    border: 2px solid var(--tuiter-highlight);
+    background: linear-gradient(180deg, rgba(var(--tuiter-white-rgb),1) 0%, rgba(var(--tuiter-white-rgb),1) 100%);
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.child-replies {
+    margin-top: 10px;
+}
+
+/* Remove connector line when conversation chain is rendered inside replies (avoids dark vertical line at left of Replies header) */
+.child-replies .conversation-chain::before {
+    display: none;
+}
+
+.child-replies h4 {
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.reply-post {
+    padding: 8px 0;
+    border-top: 1px solid var(--tuiter-divider);
+    display: flex;
+    gap: 8px;
+}
+
+.reply-avatar img { width: 28px; height: 28px; border-radius: 50%; }
+
+.reply-content { flex: 1; }
+
+/* Forum-style nested threaded replies (2000s forum feel + 2006 Twitter identity) */
+.threaded-replies {
+  margin-left: 6px;
+  padding-left: 0;
+  list-style: none;
+  font-size: 13px; /* slightly larger for readability like forum posts */
+}
+
+.thread-node {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 8px 0; /* space between boxed replies like forum posts */
+  position: relative;
+}
+
+/* avatar: forum-like small square with border */
+.thread-avatar img {
+  width: 36px;
+  height: 36px;
+  border-radius: 3px;
+  object-fit: cover;
+  border: 1px solid var(--tuiter-border-muted);
+  background: var(--tuiter-surface-subtle);
+}
+.thread-avatar a { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; }
+
+/* main content box for each reply - distinct boxed look from old forums */
+.thread-content {
+  flex: 1;
+  background: linear-gradient(180deg, var(--tuiter-white), var(--tuiter-surface-subtle));
+  border: 1px solid var(--tuiter-thread-border);
+  border-radius: 6px;
+  padding: 8px 10px;
+  box-shadow: 0 1px 0 rgba(var(--tuiter-media-black-rgb),0.03);
+}
+
+/* author and meta remain compact and recognizably 2006 */
+.thread-content .reply-author {
+  font-weight: 700;
+  color: var(--tuiter-handle-blue);
+  font-size: 12px;
+  text-decoration: none;
+}
+.thread-content .reply-author:hover { text-decoration: underline; }
+
+.thread-node .reply-text {
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.35;
+  color: var(--tuiter-text);
+}
+.thread-node .reply-meta {
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--tuiter-muted);
+}
+
+/* children are indented to the right and connected by a vertical rule (forum-style thread connector) */
+.thread-children {
+  margin-top: 10px;
+  margin-left: 52px; /* indent children under parent (space for avatar + gutter) */
+  position: relative;
+}
+.thread-children::before {
+  content: "";
+  position: absolute;
+  left: -42px; /* place connector between avatar and parent box */
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(var(--tuiter-media-black-rgb),0.06), rgba(var(--tuiter-media-black-rgb),0.00));
+  border-radius: 2px;
+}
+
+/* subtle alternating backgrounds for depth (gives forum nesting feel) */
+.threaded-replies > .thread-node .thread-content { background: linear-gradient(180deg,var(--tuiter-white),var(--tuiter-surface-subtle)); }
+.threaded-replies > .thread-node > .thread-children > .thread-node .thread-content { background: linear-gradient(180deg,var(--tuiter-surface-warm),var(--tuiter-white)); }
+.threaded-replies > .thread-node > .thread-children > .thread-node > .thread-children > .thread-node .thread-content { background: linear-gradient(180deg,var(--tuiter-surface-cool),var(--tuiter-white)); }
+
+/* connector dot on parent to indicate connection point (keeps previous subtle dot concept) */
+.thread-node::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--tuiter-border-subtle);
+  position: absolute;
+  left: 28px; /* align near avatar */
+  top: 18px;
+  box-shadow: 0 1px 0 rgba(var(--tuiter-media-black-rgb),0.02) inset;
+}
+
+/* keep viewed/highlighted post styling but match new padding */
+.thread-content.highlighted-post {
+  border: 2px solid var(--tuiter-highlight);
+  background: linear-gradient(180deg, rgba(var(--tuiter-white-rgb),1) 0%, rgba(var(--tuiter-white-rgb),1) 100%);
+  padding: 10px;
+  border-radius: 6px;
+}
+
+/* responsive tweaks - reduce avatar and indentation on small screens */
+@media (max-width: 800px) {
+  .thread-avatar img { width: 28px; height: 28px; }
+  .thread-children { margin-left: 40px; }
+  .thread-node::before { left: 22px; top: 14px; }
+}
+
+/* ensure legacy flat-view rules still hide threaded markup when requested */
+.child-replies.flat-view .threaded-replies { display: none; }
+/* Media styles for posts (images, video thumbnails, external link cards) */
+.post-media { margin-top: 8px; display: block; }
+.media-images { display: flex; gap: 8px; flex-wrap: wrap; }
+.post-image { max-width: 220px; max-height: 160px; border: 1px solid var(--tuiter-border-subtle); border-radius: 6px; object-fit: cover; }
+.media-video { margin-top: 6px; }
+.post-video-thumb { max-width: 320px; max-height: 200px; border: 1px solid var(--tuiter-border-subtle); border-radius: 6px; object-fit: cover; }
+.media-external { margin-top: 6px; }
+.external-link-card { display: flex; gap: 8px; align-items: center; text-decoration: none; border: 1px solid var(--tuiter-border-subtle); padding: 6px; border-radius: 6px; background: var(--tuiter-white); }
+.external-thumb { width: 80px; height: 60px; object-fit: cover; border-radius: 4px; }
+.external-meta { color: var(--tuiter-text); font-size: 12px; }
+.external-desc { color: var(--tuiter-muted); font-size: 11px; margin-top: 4px; }
+
+/* Lightbox for viewing full-size images */
+#lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(var(--tuiter-media-black-rgb),0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+#lightbox-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 6px;
+  box-shadow: 0 8px 30px rgba(var(--tuiter-media-black-rgb),0.6);
+}
+#lightbox-overlay .close-hint {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  color: var(--tuiter-white);
+  font-size: 13px;
+  opacity: 0.9;
+}
+#lightbox-overlay.visible { display: flex; }
+
+/* Chat-style reply-thread bubbles (2000s-inspired) */
+.chat { display: flex; flex-direction: column; gap: 8px; }
+.chat-node { display: flex; width: 100%; }
+/* allow wrapping so media can be placed on its own line under the bubble */
+.chat-node, .reply-thread.chat .chat-node { flex-wrap: wrap; }
+.chat-node.left { justify-content: flex-start; }
+.chat-node.right { justify-content: flex-end; }
+.chat-bubble {
+  max-width: 70%;
+  padding: 8px 10px;
+  border-radius: 14px;
+  background: linear-gradient(180deg,var(--tuiter-card),var(--tuiter-surface-cool));
+  border: 1px solid var(--tuiter-border-subtle);
+  box-shadow: 0 2px 0 rgba(var(--tuiter-media-black-rgb),0.06);
+  font-size: 12px;
+  color: var(--tuiter-text);
+  position: relative;
+}
+/* Pale blue right bubble to match 2006 Twitter aesthetic */
+.chat-node.right .chat-bubble {
+  background: linear-gradient(180deg,var(--tuiter-cyan-pale),var(--tuiter-cyan-pale-2));
+  color: var(--tuiter-dark-teal);
+  border-color: var(--tuiter-cyan-pale);
+}
+
+.chat-author { font-weight: 700; color: var(--tuiter-handle-blue); font-size: 12px; margin-bottom: 4px; }
+/* keep author link color consistent */
+.chat-node.right .chat-author { color: var(--tuiter-handle-blue); }
+.chat-text { white-space: pre-wrap; line-height: 1.35; }
+
+/* small triangular tail effect (CSS pseudo-element) */
+.chat-node.left .chat-bubble::after {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 10px;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(180deg,var(--tuiter-card),var(--tuiter-surface-cool));
+  border-right: 1px solid var(--tuiter-border-subtle);
+  transform: rotate(45deg);
+  border-bottom: 1px solid rgba(var(--tuiter-media-black-rgb),0.03);
+}
+.chat-node.right .chat-bubble::after {
+  content: "";
+  position: absolute;
+  right: -8px;
+  top: 10px;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(180deg,var(--tuiter-cyan-pale),var(--tuiter-cyan-pale-2));
+  border-left: 1px solid var(--tuiter-cyan-pale);
+  transform: rotate(45deg);
+  border-top: 1px solid rgba(var(--tuiter-white-rgb),0.6);
+}
+
+.chat-author { font-weight: 700; color: var(--tuiter-handle-blue); font-size: 12px; margin-bottom: 4px; }
+/* keep author link color consistent */
+.chat-node.right .chat-author { color: var(--tuiter-handle-blue); }
+.chat-text { white-space: pre-wrap; line-height: 1.35; }
+
+/* current post highlight tweaks */
+.current-post .chat-bubble { box-shadow: 0 3px 0 rgba(var(--tuiter-media-black-rgb),0.08); border-color: var(--tuiter-highlight); }
+
+/* ensure bubbles are responsive */
+@media (max-width: 800px) {
+  .chat-bubble { max-width: 90%; }
+}
+
+/* Avatar next to chat bubbles (tight chat spacing like classic chat UIs) */
+.chat-node.compact { align-items: center; gap: 6px; }
+.chat-avatar { width: 36px; display:flex; align-items:center; justify-content:center; margin: 0; }
+.chat-avatar img { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(var(--tuiter-media-black-rgb),0.06); }
+.avatar-placeholder { width: 28px; height: 28px; background: var(--tuiter-avatar-bg); border-radius:50%; border:1px solid var(--tuiter-border-muted); }
+/* tighten spacing between avatar and bubble */
+.chat-node.left .chat-avatar { margin-right: 6px; }
+.chat-node.right .chat-avatar { margin-left: 6px; }
+.chat-node.left .chat-bubble { margin-left: 4px; }
+.chat-node.right .chat-bubble { margin-right: 4px; }
+/* adjust tail vertical position for tighter layout */
+.chat-node.left .chat-bubble::after, .chat-node.right .chat-bubble::after { top: 12px; width: 10px; height: 10px; }
+/* ensure compact bubbles remain visually balanced */
+.chat-bubble.small { padding: 6px 8px; }
+
+/* Flattened chat style tweaks */
+.chat.flattened .chat-node.compact { gap: 6px; align-items: flex-start; }
+.chat-bubble.small { padding: 6px 8px; border-radius: 8px; font-size: 12px; max-width: 60%; }
+.chat-bubble.small .chat-author { font-size: 12px; margin-bottom: 3px; }
+.chat-bubble.small .chat-text { font-size: 12px; line-height: 1.3; }
+.chat-meta { margin-top: 6px; font-size: 11px; color: var(--tuiter-muted); }
+.chat-meta a { color: var(--tuiter-link); text-decoration: none; }
+.chat-meta a:hover { text-decoration: underline; }
+
+/* make bubbles occupy less vertical space and appear flatter */
+.chat-bubble.small { box-shadow: none; border: 1px solid rgba(var(--tuiter-media-black-rgb),0.06); }
+.chat-node.left .chat-bubble.small::after, .chat-node.right .chat-bubble.small::after { width: 10px; height: 10px; top: 12px; }
+
+/* slightly tighter avatar size for compact view */
+.chat-avatar img { width: 28px; height: 28px; }
+.avatar-placeholder { width: 28px; height: 28px; }
+
+/* ensure compact nodes don't take too much horizontal space */
+.chat-node.compact .chat-bubble.small { max-width: 55%; }
+@media (max-width: 800px) {
+  .chat-node.compact .chat-bubble.small { max-width: 78%; }
+}
+
+/* Right-side bubble text alignment for author and timestamp only */
+.chat-node.right .chat-bubble { text-align: left; }
+.chat-node.right .chat-author { display: block; text-align: right; }
+.chat-node.right .chat-meta { text-align: right; }
+
+/* IRC-like conversation container for reply threads (2006 aesthetic) */
+.reply-thread.chat.flattened {
+  background: linear-gradient(160deg,var(--tuiter-white),var(--tuiter-cyan-pale));
+  border: 1px solid var(--tuiter-cyan-pale); /* soft cyan border */
+  border-radius: 6px; /* small, square-rounded corners */
+  padding: 10px; /* snug padding */
+  box-shadow: inset 0 1px 0 rgba(var(--tuiter-white-rgb),0.6), 0 1px 0 rgba(var(--tuiter-media-black-rgb),0.03);
+  margin: 8px 0;
+  width: 100%;
+}
+.reply-thread.chat.flattened .chat-node { margin-bottom: 6px; }
+.reply-thread.chat.flattened .chat-bubble { background: transparent; border: none; box-shadow: none; }
+.reply-thread.chat.flattened .chat-bubble.small { background: linear-gradient(180deg,var(--tuiter-white),var(--tuiter-surface-cool)); border: 1px solid rgba(var(--tuiter-media-black-rgb),0.06); }
+/* reduce overall spacing to feel IRC-like */
+.reply-thread.chat.flattened .chat-avatar { margin-right: 8px; }
+.reply-thread.chat.flattened .chat-node.right .chat-avatar { margin-left: 8px; margin-right: 0; }
+
+/* Tight avatar->bubble attachment: remove spacing so bubble appears to come out of the avatar */
+.chat-node.compact { gap: 0 !important; align-items: center; }
+.chat-avatar { margin: 0 !important; position: relative; z-index: 3; }
+.chat-avatar img { position: relative; z-index: 4; }
+
+/* remove any horizontal margins so bubble and avatar touch */
+.chat-node.left .chat-avatar { margin-right: 0 !important; }
+.chat-node.right .chat-avatar { margin-left: 0 !important; }
+
+/* overlap the bubble slightly under the avatar so it looks like it emerges from it */
+.chat-node.left .chat-bubble { margin-left: -8px !important; z-index: 1; }
+.chat-node.right .chat-bubble { margin-right: -8px !important; z-index: 1; }
+
+/* flattened thread variants */
+.reply-thread.chat.flattened .chat-avatar { margin-right: 0 !important; }
+.reply-thread.chat.flattened .chat-node.right .chat-avatar { margin-left: 0 !important; }
+
+/* bring the avatar visually in front and nudge the triangular tail to meet the avatar edge */
+.chat-node.left .chat-bubble::after { left: -4px !important; top: 12px !important; width: 10px !important; height: 10px !important; }
+.chat-node.right .chat-bubble::after { right: -4px !important; top: 12px !important; width: 10px !important; height: 10px !important; }
+
+/* ensure small/compact bubbles also follow the same tight layout */
+.chat-bubble.small { z-index: 1; }
+.chat-node.compact .chat-bubble.small { margin-left: -6px !important; margin-right: -6px !important; }
+
+/* make sure the avatar border visually connects with the bubble by slightly reducing avatar border contrast */
+.chat-avatar img { border: 1px solid rgba(var(--tuiter-media-black-rgb),0.04); }
+
+/* Chat-media: ensure media appears below the bubble and aligns to the same side (left/right) */
+.chat-media {
+  display: block;
+  /* force the media element to occupy the full row inside the .chat-node flex container */
+  flex-basis: 100%;
+  order: 99; /* place after avatar + bubble */
+  margin-top: 6px;
+  width: 100%;
+  clear: both; /* ensure it sits below any floated/inline elements */
+}
+
+/* Ensure the shared post-media behaves as a block-level card, but can be centered/right-aligned by its container */
+.post-media { display: inline-block; }
+
+/* Offset the media so it lines up under the bubble, leaving space for the avatar */
+.chat-node.left .chat-media {
+  text-align: left;
+  padding-left: 44px; /* space for avatar + small gutter */
+  padding-right: 0;
+}
+
+.chat-node.right .chat-media {
+  text-align: right;
+  padding-right: 44px; /* space for avatar + small gutter */
+  padding-left: 0;
+}
+
+/* Keep individual media items inline-block so they respect text-align on the container */
+.chat-media .post-media .media-images,
+.chat-media .post-media .media-video,
+.chat-media .post-media .media-external {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* Responsive tweak: reduce offset on small screens */
+@media (max-width: 800px) {
+  .chat-node.left .chat-media,
+  .chat-node.right .chat-media {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .chat-media .post-media { max-width: 100%; }
+}
+
+/* Added rules to replace inline styles moved from templates */
+.post-avatar-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.post-author-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+.post-content-inline {
+  display: inline-block;
+  vertical-align: top;
+  width: calc(100% - 56px);
+}
+
+.post-box-textarea {
+  resize: none;
+  background: var(--tuiter-input-bg);
+  border-radius: 6px;
+  border: 1px solid var(--tuiter-border-muted);
+  color: var(--tuiter-text);
+  width: 100%;
+  min-height: 60px;
+  padding: 6px;
+}
+
+.update-btn-large {
+  background: var(--tuiter-brand);
+  color: var(--tuiter-white);
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  padding: 8px 22px;
+  font-size: 1.1em;
+  box-shadow: 0 2px 6px rgba(var(--tuiter-media-black-rgb),0.08);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.chain-avatar-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-avatar-img {
+  width: 96px;
+  height: 96px;
+  border: 1px solid var(--tuiter-border-muted);
+  border-radius: 2px;
+  display: block;
+}
+
+.video-embedded {
+  max-width: 100%;
+  height: auto;
+  background: var(--tuiter-media-black);
+}
+
+#lightbox-video {
+  max-width: 100%;
+  max-height: 80vh;
+  display: none;
+}
+
+#lightbox-img { max-width: 100%; max-height: 80vh; display: block; }
+
+/* make lightbox overlay hidden by default and visible when .visible is present */
+#lightbox-overlay { display: none; position: fixed; inset: 0; background: rgba(var(--tuiter-media-black-rgb),0.8); align-items: center; justify-content: center; z-index: 9999; }
+#lightbox-overlay.visible { display: flex; }
+/* Enhanced styling for standard (non-reply) posts inserted to match 2006 retro layout with better spacing */
+.post-avatar {
+  flex: 0 0 56px; /* reserve space for avatar */
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.post-avatar a { display:inline-block; }
+.post-avatar img { width:48px; height:48px; border-radius:4px; border:1px solid var(--tuiter-border-muted); object-fit:cover; }
+
+.post-content.post-card {
+  background: linear-gradient(180deg, rgba(var(--tuiter-white-rgb),0.98), var(--tuiter-surface-subtle));
+  border: 1px solid rgba(var(--tuiter-media-black-rgb),0.04);
+  border-radius: 6px;
+  padding: 8px 10px;
+  width: 100%;
+}
+
+.post-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.post-head {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.post-head .post-author {
+  font-weight: 700;
+  color: var(--tuiter-handle-blue);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.post-handle {
+  font-size: 12px;
+  color: var(--tuiter-muted);
+  margin-left: 6px;
+}
+
+.post-meta-inline {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--tuiter-muted);
+  white-space: nowrap;
+}
+
+.post-body {
+  margin-top: 4px;
+  display: block;
+}
+
+.post-text {
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--tuiter-text);
+}
+
+.post-actions {
+  margin-top: 8px;
+  font-size: 11px;
+}
+
+/* Make post-media sit comfortably under the text and align with content area */
+.post-content .post-media { margin-top: 8px; }
+
+/* Slightly increase spacing between posts for readability */
+.post { padding: 14px 0; }
+
+/* Retro subtle hover highlight for posts (non-reply) */
+.post:hover .post-content.post-card { box-shadow: 0 4px 14px rgba(var(--tuiter-media-black-rgb),0.06); transform: translateY(-1px); }
+
+/* Small screens: reduce avatar and padding to keep content readable */
+@media (max-width: 640px) {
+  .post-avatar { flex: 0 0 44px; }
+  .post-avatar img { width:40px; height:40px; }
+  .post-content.post-card { padding: 8px; }
+  .post-meta-inline { font-size: 10px; }
+}
+
+/* Reply floating button (circular) shown at bottom-right of post content cards and chat bubbles */
+.reply-button {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px; /* reduced from 32px */
+  height: 28px; /* reduced from 32px */
+  border-radius: 50%;
+  background: rgba(var(--tuiter-white-rgb),0.72); /* more translucent */
+  border: 1px solid rgba(var(--tuiter-media-black-rgb),0.03); /* subtler border */
+  box-shadow: 0 1px 3px rgba(var(--tuiter-media-black-rgb),0.04); /* very light shadow */
+  z-index: 30;
+  padding: 0;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s, opacity 0.12s;
+  opacity: 0.96;
+}
+
+.reply-button:hover {
+  background: rgba(var(--tuiter-accent),0.98);
+  color: rgba(var(--tuiter-white-rgb),0.98);
+  box-shadow: 0 2px 6px rgba(var(--tuiter-media-black-rgb),0.06);
+  transform: translateY(-1px);
+  opacity: 1;
+}
+
+.reply-button .reply-btn {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  font-size: 12px; /* slightly smaller icon/text */
+  line-height: 1;
+  cursor: pointer;
+  color: var(--tuiter-muted);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* allow nudging the arrow down */
+  top: 2px; /* nudge arrow a bit downward */
+}
+.reply-button .reply-btn:hover, .reply-button.active .reply-btn {
+  background-color: var(--tuiter-handle-blue);
+  color: var(--tuiter-white);
+}
+
+/* notification-style badge for count - monochrome and low-contrast by default */
+.reply-button .reply-count {
+  position: absolute;
+  top: -2px; /* moved slightly down from -5px */
+  right: -5px;
+  min-width: 14px; /* reduced from 18px */
+  height: 14px; /* reduced from 18px */
+  padding: 0 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px; /* slightly smaller */
+  font-weight: 700;
+  color: var(--tuiter-white);
+  background: rgba(var(--tuiter-media-black-rgb),0.28); /* monochrome, translucent */
+  border-radius: 999px;
+  border: 1px solid rgba(var(--tuiter-white-rgb),0.85);
+  box-shadow: none; /* remove ornamental shadow */
+  transition: background 0.12s ease, transform 0.12s ease, opacity 0.12s;
+  opacity: 0.92;
+  pointer-events: none;
+}
+.reply-button:hover .reply-count {
+  background: rgba(var(--tuiter-media-black-rgb),0.5); /* darker on hover to show affordance */
+  opacity: 1;
+}
+
+/* Use accent color for the reply-count badge when the button is hovered (main, chat and bubble variants) */
+.reply-button:hover .reply-count,
+.chat-reply-button:hover .reply-count,
+.chat-bubble .reply-button:hover .reply-count {
+  background: var(--tuiter-accent);
+  color: var(--tuiter-white);
+  border-color: rgba(var(--tuiter-white-rgb),0.9);
+  opacity: 1;
+}
+
+.chat-reply-button { width: 26px; height: 26px; right: 6px; bottom: 6px; background: rgba(var(--tuiter-white-rgb),0.74); box-shadow: 0 1px 3px rgba(var(--tuiter-media-black-rgb),0.04); }
+.chat-reply-button .reply-btn { font-size: 11px; position: relative; top: 1px; color: var(--tuiter-muted); }
+.chat-reply-button .reply-count { top: -3px; right: -6px; min-width: 12px; height: 12px; font-size: 9px; background: rgba(var(--tuiter-media-black-rgb),0.28); color: var(--tuiter-white); border: 1px solid rgba(var(--tuiter-white-rgb),0.85); box-shadow: none; }
+
+/* small screen adjustments */
+@media (max-width: 640px) {
+  .reply-button { width: 26px; height: 26px; right: 8px; bottom: 8px; }
+  .reply-button .reply-count { top: -3px; right: -5px; min-width: 12px; height: 12px; font-size: 9px; }
+}
+
+/* ensure reply button doesn't obstruct essential text - slightly transparent when overlapping text */
+.post-content.post-card .reply-button { background: rgba(var(--tuiter-white-rgb),0.68); }
+
+/* Allow absolute-positioned reply button to anchor to chat bubbles */
+.chat-bubble { position: relative; }
+
+/* Reply button when placed inside a chat bubble (smaller, tucked in) */
+.chat-bubble .reply-button {
+  position: absolute; /* anchor to bubble */
+  bottom: 6px;
+  width: 24px; /* reduced from 26/30 */
+  height: 24px; /* reduced */
+  min-width: 24px;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(var(--tuiter-media-black-rgb),0.04);
+  background: rgba(var(--tuiter-white-rgb),0.74);
+  border: 1px solid rgba(var(--tuiter-media-black-rgb),0.03);
+  padding: 0;
+  z-index: 25;
+  transition: background 0.12s ease, box-shadow 0.12s ease, transform 0.12s ease;
+}
+.chat-bubble .reply-button:hover { background: rgba(var(--tuiter-white-rgb),0.96); box-shadow: 0 2px 5px rgba(var(--tuiter-media-black-rgb),0.05); transform: translateY(-1px); }
+.chat-bubble .reply-button .reply-btn { font-size: 11px; position: relative; top: 3px; }
+.chat-bubble .reply-button .reply-count { top: 1px; right: -2px; min-width: 11px; height: 11px; font-size: 9px; background: rgba(var(--tuiter-media-black-rgb),0.28); color: var(--tuiter-white); border: 1px solid rgba(var(--tuiter-white-rgb),0.85); box-shadow: none; opacity: 0.92; }
+
+/* left-side bubble: place button at bubble's lower-right (so arrow visually points toward avatar on left) */
+.chat-bubble .reply-button.side-left { right: -26px; left: auto; }
+
+/* right-side bubble: place button at bubble's lower-left (so arrow visually points toward avatar on right) */
+.chat-bubble .reply-button.side-right { left: -26px; right: auto; }
+
+/* Ensure badge stands out on top of bubble */
+.chat-bubble .reply-button .reply-count { border: 1px solid rgba(var(--tuiter-white-rgb),0.9); }
+
+/* Keep previous chat-reply-button class for other placements but prefer bubble-scoped rules for bubbles */
+.reply-button .reply-count,
+.chat-reply-button .reply-count,
+.chat-bubble .reply-button .reply-count {
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.12s ease, opacity 0.12s ease;
+}
+
+/* Hide reply button by default and reveal on hover of the post/chat container */
+.reply-button {
+  /* keep existing sizing/appearance but start hidden */
+  opacity: 0;
+  transform: translateY(4px) scale(0.98);
+  pointer-events: none;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s, opacity 0.18s ease;
+}
+
+/* Reveal when user hovers the relevant container (post card, post wrapper or chat bubble) */
+.post:hover .reply-button,
+.post-content.post-card:hover .reply-button,
+.post-content.post-card:focus-within .reply-button,
+.post:hover .post-content.post-card .reply-button,
+.chat-node:hover .reply-button,
+.chat-bubble:hover .reply-button,
+.thread-node:hover .reply-button {
+  opacity: 0.96; /* match previous visible state */
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* On touch devices (no hover), keep button visible so it's usable */
+@media (hover: none) {
+  .reply-button {
+    opacity: 0.96;
+    transform: none;
+    pointer-events: auto;
+  }
+}
+
+
+/* fav floating button (circular) shown at bottom-right of post content cards and chat bubbles */
+.fav-button {
+  position: absolute;
+  right: 40px;
+  bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px; /* reduced from 32px */
+  height: 28px; /* reduced from 32px */
+  border-radius: 50%;
+  background: rgba(var(--tuiter-white-rgb),0.72); /* more translucent */
+  border: 1px solid rgba(var(--tuiter-media-black-rgb),0.03); /* subtler border */
+  box-shadow: 0 1px 3px rgba(var(--tuiter-media-black-rgb),0.04); /* very light shadow */
+  z-index: 30;
+  padding: 0;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s, opacity 0.12s;
+  opacity: 0.96;
+}
+
+.fav-button:hover {
+  background: rgba(var(--tuiter-highlight),0.98);
+  color: rgba(var(--tuiter-white-rgb),0.98);
+  box-shadow: 0 2px 6px rgba(var(--tuiter-media-black-rgb),0.06);
+  transform: translateY(-1px);
+  opacity: 1;
+}
+
+.fav-button .fav-btn {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  font-size: 12px; /* slightly smaller icon/text */
+  line-height: 1;
+  cursor: pointer;
+  color: var(--tuiter-muted);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* allow nudging the arrow down */
+  top: 2px; /* nudge arrow a bit downward */
+}
+.fav-button .fav-btn:hover, .fav-button.active .fav-btn {
+  background-color: var(--tuiter-highlight);
+  color: var(--tuiter-white);
+}
+
+/* notification-style badge for count - monochrome and low-contrast by default */
+.fav-button .fav-count {
+  position: absolute;
+  top: -2px; /* moved slightly down from -5px */
+  right: -5px;
+  min-width: 14px; /* reduced from 18px */
+  height: 14px; /* reduced from 18px */
+  padding: 0 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px; /* slightly smaller */
+  font-weight: 700;
+  color: var(--tuiter-white);
+  background: rgba(var(--tuiter-media-black-rgb),0.28); /* monochrome, translucent */
+  border-radius: 999px;
+  border: 1px solid rgba(var(--tuiter-white-rgb),0.85);
+  box-shadow: none; /* remove ornamental shadow */
+  transition: background 0.12s ease, transform 0.12s ease, opacity 0.12s;
+  opacity: 0.92;
+  pointer-events: none;
+}
+.fav-button:hover .fav-count {
+  background: rgba(var(--tuiter-media-black-rgb),0.5); /* darker on hover to show affordance */
+  opacity: 1;
+}
+
+/* Use accent color for the fav-count badge when the button is hovered (main, chat and bubble variants) */
+.fav-button:hover .fav-count,
+.chat-fav-button:hover .fav-count,
+.chat-bubble .fav-button:hover .fav-count {
+  background: var(--tuiter-highlight);
+  color: var(--tuiter-white);
+  border-color: rgba(var(--tuiter-white-rgb),0.9);
+  opacity: 1;
+}
+
+.chat-fav-button { width: 26px; height: 26px; right: 6px; bottom: 6px; background: rgba(var(--tuiter-white-rgb),0.74); box-shadow: 0 1px 3px rgba(var(--tuiter-media-black-rgb),0.04); }
+.chat-fav-button .fav-btn { font-size: 11px; position: relative; top: 1px; color: var(--tuiter-muted); }
+.chat-fav-button .fav-count { top: -3px; right: -6px; min-width: 12px; height: 12px; font-size: 9px; background: rgba(var(--tuiter-media-black-rgb),0.28); color: var(--tuiter-white); border: 1px solid rgba(var(--tuiter-white-rgb),0.85); box-shadow: none; }
+
+/* small screen adjustments */
+@media (max-width: 640px) {
+  .fav-button { width: 26px; height: 26px; right: 8px; bottom: 8px; }
+  .fav-button .fav-count { top: -3px; right: -5px; min-width: 12px; height: 12px; font-size: 9px; }
+}
+
+/* ensure fav button doesn't obstruct essential text - slightly transparent when overlapping text */
+.post-content.post-card .fav-button { background: rgba(var(--tuiter-white-rgb),0.68); }
+
+/* Allow absolute-positioned fav button to anchor to chat bubbles */
+.chat-bubble { position: relative; }
+
+/* fav button when placed inside a chat bubble (smaller, tucked in) */
+.chat-bubble .fav-button {
+  position: absolute; /* anchor to bubble */
+  bottom: 6px;
+  width: 24px; /* reduced from 26/30 */
+  height: 24px; /* reduced */
+  min-width: 24px;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(var(--tuiter-media-black-rgb),0.04);
+  background: rgba(var(--tuiter-white-rgb),0.74);
+  border: 1px solid rgba(var(--tuiter-media-black-rgb),0.03);
+  padding: 0;
+  z-index: 25;
+  transition: background 0.12s ease, box-shadow 0.12s ease, transform 0.12s ease;
+}
+.chat-bubble .fav-button:hover { background: rgba(var(--tuiter-white-rgb),0.96); box-shadow: 0 2px 5px rgba(var(--tuiter-media-black-rgb),0.05); transform: translateY(-1px); }
+.chat-bubble .fav-button .fav-btn { font-size: 11px; position: relative; top: 3px; }
+.chat-bubble .fav-button .fav-count { top: 1px; right: -2px; min-width: 11px; height: 11px; font-size: 9px; background: rgba(var(--tuiter-media-black-rgb),0.28); color: var(--tuiter-white); border: 1px solid rgba(var(--tuiter-white-rgb),0.85); box-shadow: none; opacity: 0.92; }
+
+/* left-side bubble: place button at bubble's lower-right (so arrow visually points toward avatar on left) */
+.chat-bubble .fav-button.side-left { right: -26px; left: auto; bottom: 32px; }
+
+/* right-side bubble: place button at bubble's lower-left (so arrow visually points toward avatar on right) */
+.chat-bubble .fav-button.side-right { left: -26px; right: auto; bottom: 32px; }
+
+/* Ensure badge stands out on top of bubble */
+.chat-bubble .fav-button .fav-count { border: 1px solid rgba(var(--tuiter-white-rgb),0.9); }
+
+/* Keep previous chat-fav-button class for other placements but prefer bubble-scoped rules for bubbles */
+.fav-button .fav-count,
+.chat-fav-button .fav-count,
+.chat-bubble .fav-button .fav-count {
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.12s ease, opacity 0.12s ease;
+}
+
+
+/* Hide fav button by default and reveal on hover of the post/chat container */
+.fav-button {
+  /* keep existing sizing/appearance but start hidden */
+  opacity: 0;
+  transform: translateY(4px) scale(0.98);
+  pointer-events: none;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s, opacity 0.18s ease;
+}
+
+/* Reveal when user hovers the relevant container (post card, post wrapper or chat bubble) */
+.post:hover .fav-button,
+.post-content.post-card:hover .fav-button,
+.post-content.post-card:focus-within .fav-button,
+.post:hover .post-content.post-card .fav-button,
+.chat-node:hover .fav-button,
+.chat-bubble:hover .fav-button,
+.thread-node:hover .fav-button {
+  opacity: 0.96; /* match previous visible state */
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* On touch devices (no hover), keep button visible so it's usable */
+@media (hover: none) {
+  .fav-button {
+    opacity: 0.96;
+    transform: none;
+    pointer-events: auto;
+  }
+}
+
+/* rt floating button (circular) shown at bottom-right of post content cards and chat bubbles */
+.rt-button {
+  position: absolute;
+  right: 70px;
+  bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px; /* reduced from 32px */
+  height: 28px; /* reduced from 32px */
+  border-radius: 50%;
+  background: rgba(var(--tuiter-white-rgb),0.72); /* more translucent */
+  border: 1px solid rgba(var(--tuiter-media-black-rgb),0.03); /* subtler border */
+  box-shadow: 0 1px 3px rgba(var(--tuiter-media-black-rgb),0.04); /* very light shadow */
+  z-index: 30;
+  padding: 0;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s, opacity 0.12s;
+  opacity: 0.96;
+}
+
+.rt-button:hover {
+  background: rgba(var(--tuiter-sidebar-bg),0.98);
+  color: rgba(var(--tuiter-white-rgb),0.98);
+  box-shadow: 0 2px 6px rgba(var(--tuiter-media-black-rgb),0.06);
+  transform: translateY(-1px);
+  opacity: 1;
+}
+
+.rt-button .rt-btn {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  font-size: 12px; /* slightly smaller icon/text */
+  line-height: 1;
+  cursor: pointer;
+  color: var(--tuiter-muted);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* allow nudging the arrow down */
+  top: 2px; /* nudge arrow a bit downward */
+}
+.rt-button .rt-btn:hover, .rt-button.active .rt-btn {
+  background-color: var(--tuiter-sidebar-bg);
+  color: var(--tuiter-white);
+}
+
+/* notification-style badge for count - monochrome and low-contrast by default */
+.rt-button .rt-count {
+  position: absolute;
+  top: -2px; /* moved slightly down from -5px */
+  right: -5px;
+  min-width: 14px; /* reduced from 18px */
+  height: 14px; /* reduced from 18px */
+  padding: 0 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px; /* slightly smaller */
+  font-weight: 700;
+  color: var(--tuiter-white);
+  background: rgba(var(--tuiter-media-black-rgb),0.28); /* monochrome, translucent */
+  border-radius: 999px;
+  border: 1px solid rgba(var(--tuiter-white-rgb),0.85);
+  box-shadow: none; /* remove ornamental shadow */
+  transition: background 0.12s ease, transform 0.12s ease, opacity 0.12s;
+  opacity: 0.92;
+  pointer-events: none;
+}
+.rt-button:hover .rt-count {
+  background: rgba(var(--tuiter-media-black-rgb),0.5); /* darker on hover to show affordance */
+  opacity: 1;
+}
+
+/* Use accent color for the rt-count badge when the button is hovered (main, chat and bubble variants) */
+.rt-button:hover .rt-count,
+.chat-rt-button:hover .rt-count,
+.chat-bubble .rt-button:hover .rt-count {
+  background: var(--tuiter-sidebar-bg);
+  color: var(--tuiter-white);
+  border-color: rgba(var(--tuiter-white-rgb),0.9);
+  opacity: 1;
+}
+
+.chat-rt-button { width: 26px; height: 26px; right: 6px; bottom: 6px; background: rgba(var(--tuiter-white-rgb),0.74); box-shadow: 0 1px 3px rgba(var(--tuiter-media-black-rgb),0.04); }
+.chat-rt-button .rt-btn { font-size: 11px; position: relative; top: 1px; color: var(--tuiter-muted); }
+.chat-rt-button .rt-count { top: -3px; right: -6px; min-width: 12px; height: 12px; font-size: 9px; background: rgba(var(--tuiter-media-black-rgb),0.28); color: var(--tuiter-white); border: 1px solid rgba(var(--tuiter-white-rgb),0.85); box-shadow: none; }
+
+/* small screen adjustments */
+@media (max-width: 640px) {
+  .rt-button { width: 26px; height: 26px; right: 8px; bottom: 8px; }
+  .rt-button .rt-count { top: -3px; right: -5px; min-width: 12px; height: 12px; font-size: 9px; }
+}
+
+/* ensure rt button doesn't obstruct essential text - slightly transparent when overlapping text */
+.post-content.post-card .rt-button { background: rgba(var(--tuiter-white-rgb),0.68); }
+
+/* Allow absolute-positioned rt button to anchor to chat bubbles */
+.chat-bubble { position: relative; }
+
+/* rt button when placed inside a chat bubble (smaller, tucked in) */
+.chat-bubble .rt-button {
+  position: absolute; /* anchor to bubble */
+  bottom: 6px;
+  width: 24px; /* reduced from 26/30 */
+  height: 24px; /* reduced */
+  min-width: 24px;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(var(--tuiter-media-black-rgb),0.04);
+  background: rgba(var(--tuiter-white-rgb),0.74);
+  border: 1px solid rgba(var(--tuiter-media-black-rgb),0.03);
+  padding: 0;
+  z-index: 25;
+  transition: background 0.12s ease, box-shadow 0.12s ease, transform 0.12s ease;
+}
+.chat-bubble .rt-button:hover { background: rgba(var(--tuiter-white-rgb),0.96); box-shadow: 0 2px 5px rgba(var(--tuiter-media-black-rgb),0.05); transform: translateY(-1px); }
+.chat-bubble .rt-button .rt-btn { font-size: 11px; position: relative; top: 3px; }
+.chat-bubble .rt-button .rt-count { top: 1px; right: -2px; min-width: 11px; height: 11px; font-size: 9px; background: rgba(var(--tuiter-media-black-rgb),0.28); color: var(--tuiter-white); border: 1px solid rgba(var(--tuiter-white-rgb),0.85); box-shadow: none; opacity: 0.92; }
+
+/* left-side bubble: place button at bubble's lower-right (so arrow visually points toward avatar on left) */
+.chat-bubble .rt-button.side-left { right: -26px; left: auto; bottom: 58px; }
+
+/* right-side bubble: place button at bubble's lower-left (so arrow visually points toward avatar on right) */
+.chat-bubble .rt-button.side-right { left: -26px; right: auto; bottom: 58px; }
+
+/* Ensure badge stands out on top of bubble */
+.chat-bubble .rt-button .rt-count { border: 1px solid rgba(var(--tuiter-white-rgb),0.9); }
+
+/* Keep previous chat-rt-button class for other placements but prefer bubble-scoped rules for bubbles */
+.rt-button .rt-count,
+.chat-rt-button .rt-count,
+.chat-bubble .rt-button .rt-count {
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.12s ease, opacity 0.12s ease;
+}
+
+
+/* Hide rt button by default and reveal on hover of the post/chat container */
+.rt-button {
+  /* keep existing sizing/appearance but start hidden */
+  opacity: 0;
+  transform: translateY(4px) scale(0.98);
+  pointer-events: none;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s, opacity 0.18s ease;
+}
+
+/* Reveal when user hovers the relevant container (post card, post wrapper or chat bubble) */
+.post:hover .rt-button,
+.post-content.post-card:hover .rt-button,
+.post-content.post-card:focus-within .rt-button,
+.post:hover .post-content.post-card .rt-button,
+.chat-node:hover .rt-button,
+.chat-bubble:hover .rt-button,
+.thread-node:hover .rt-button {
+  opacity: 0.96; /* match previous visible state */
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* On touch devices (no hover), keep button visible so it's usable */
+@media (hover: none) {
+  .rt-button {
+    opacity: 0.96;
+    transform: none;
+    pointer-events: auto;
+  }
+}
+
+/* Reply input UI (slim, wide chat-like) */
+.reply-input-container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 8px;
+  margin-bottom: 6px;
+  padding: 6px;
+  background: rgba(var(--tuiter-white-rgb),0.04);
+  border-radius: 8px;
+  border: 1px solid rgba(var(--tuiter-media-black-rgb),0.04);
+  width: 100%;
+  max-width: 100%;
+  box-shadow: 0 1px 4px rgba(var(--tuiter-media-black-rgb),0.03);
+}
+
+.reply-input-container .reply-input {
+  flex: 1 1 auto;
+  height: 32px;
+  padding: 6px 8px;
+  font-size: 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(var(--tuiter-media-black-rgb),0.06);
+  background: rgba(var(--tuiter-white-rgb),0.9);
+  color: var(--tuiter-text);
+}
+
+.reply-input-container .reply-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--tuiter-accent-rgb),0.08);
+  border-color: var(--tuiter-accent);
+}
+
+.reply-input-container .reply-submit {
+  flex: 0 0 auto;
+  height: 32px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  background: var(--tuiter-accent);
+  color: var(--tuiter-white);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Make sure reply input inserted under a bubble/post aligns with the content width */
+.chat-node .reply-input-container,
+.post-content .reply-input-container,
+.post .reply-input-container {
+  margin-left: 44px; /* account for avatar column */
+  max-width: calc(100% - 44px);
+}
+
+/* For chat-style nodes, reduce left margin for right-side nodes */
+.chat-node.right .reply-input-container { margin-left: 8px; margin-right: 44px; max-width: calc(100% - 52px); }
+
+@media (max-width: 640px) {
+  .chat-node .reply-input-container,
+  .post-content .reply-input-container,
+  .post .reply-input-container { margin-left: 52px; max-width: calc(100% - 52px); }
+  .reply-input-container .reply-input { height: 36px; }
+}
+
+/* Small avatar square and placeholder inside the reply input container */
+.reply-avatar-square {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  object-fit: cover;
+  flex: 0 0 auto;
+  border: 1px solid rgba(var(--tuiter-media-black-rgb),0.06);
+}
+
+.reply-avatar-placeholder {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: rgba(var(--tuiter-avatar-bg-rgb),0.18);
+  border: 1px solid rgba(var(--tuiter-media-black-rgb),0.04);
+  flex: 0 0 auto;
+}
+
+/* Adjust input spacing to account for avatar */
+.reply-input-container .reply-input { margin-left: 0; }
+
+@media (max-width: 640px) {
+  .reply-avatar-square, .reply-avatar-placeholder { width: 32px; height: 32px; }
+}
+
+/* Absolutely positioned reply input container styles */
+.reply-input-container.absolute {
+  position: absolute; /* set by JS but provide default styling */
+  box-shadow: 0 8px 30px rgba(var(--tuiter-media-black-rgb),0.12);
+  background: rgba(var(--tuiter-white-rgb),0.98);
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+
+/* reduce avatar size for floating input to keep it slim */
+.reply-input-container.absolute .reply-avatar-square,
+.reply-input-container.absolute .reply-avatar-placeholder {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+}
+
+.reply-input-container.absolute .reply-input { height: 36px; }
+
+/* small screens: make floating input nearly full width */
+@media (max-width: 640px) {
+  .reply-input-container.absolute { left: 8px !important; right: 8px !important; width: auto !important; }
+}

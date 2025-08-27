@@ -1,0 +1,122 @@
+{{template "header.html" .}}
+
+    <div class="main-content">
+      <div class="content">
+        {{if .Post}}
+
+          <!-- Parent chain (if any) -->
+          {{if .ParentChain}}
+            <div class="parent-chain-wrapper">
+              <h4>Conversation context</h4>
+              {{template "conversation_chain" .ParentChain}}
+            </div>
+          {{end}}
+
+          <!-- View mode toggle -->
+          <div class="view-toggle">
+            <label>View:</label>
+            <button id="toggle-flat" class="toggle-btn">Flat</button>
+            <button id="toggle-nested" class="toggle-btn active">Nested</button>
+          </div>
+
+          <!-- Main post -->
+          {{template "main_post" .}}
+
+          <!-- Child replies (all descendants) -->
+          {{if .Replies}}
+            {{template "replies_partial" .}}
+          {{end}}
+
+        {{else}}
+          <div class="error-message">
+            <div class="post-avatar">!</div>
+            <div class="post-content">
+              <div class="post-text error-text">{{if .ErrorMsg}}{{.ErrorMsg}}{{else}}Post not found{{end}}</div>
+            </div>
+          </div>
+        {{end}}
+      </div>
+
+      <!-- Sidebar shows the POSTER'S info, not current user -->
+      <div class="sidebar">
+        {{if .PostAuthor}}
+        <div class="about-section">
+          <h3>About</h3>
+          <div class="profile-pic">
+            {{if hasAvatar .PostAuthor}}
+            <a href="/profile/{{.PostAuthor.Handle}}"><img src="{{avatarURL .PostAuthor}}" alt="{{getDisplayName .PostAuthor}}" class="sidebar-avatar-img" /></a>
+            {{else}}
+            <a href="/profile/{{.PostAuthor.Handle}}">👤</a>
+            {{end}}
+          </div>
+          <div class="profile-info">
+            <strong>Name</strong> {{if (getDisplayName .PostAuthor)}}{{getDisplayName .PostAuthor}}{{else}}{{.PostAuthor.Handle}}{{end}}<br>
+            {{if .PostAuthor.Description}}
+            <strong>Location</strong> {{.PostAuthor.Description}}<br>
+            {{end}}
+            <strong>Web</strong> <a href="/profile/{{.PostAuthor.Handle}}">{{.PostAuthor.Handle}}</a><br>
+            <strong>Bio</strong> {{if .PostAuthor.Description}}{{.PostAuthor.Description}}{{else}}No bio available{{end}}
+          </div>
+
+          <div class="stats">
+            <h4>Stats</h4>
+            <div class="stat-line">
+              <span class="stat-label">Following</span>
+              <span class="stat-value">{{getFollowingCount .PostAuthor}}</span>
+            </div>
+            <div class="stat-line">
+              <span class="stat-label">Followers</span>
+              <span class="stat-value">{{getFollowersCount .PostAuthor}}</span>
+            </div>
+            <div class="stat-line">
+              <span class="stat-label">Favorites</span>
+              <span class="stat-value">0</span>
+            </div>
+            <div class="stat-line">
+              <span class="stat-label">Updates</span>
+              <span class="stat-value">{{getPostsCount .PostAuthor}}</span>
+            </div>
+          </div>
+        </div>
+
+        {{if .PostAuthorFollows}}
+        <div class="following-section">
+          <h3>Following</h3>
+          <div class="following-grid">
+            {{range .PostAuthorFollows}}
+            <div class="following-avatar">
+              {{if hasAvatar .}}
+              <a href="/profile/{{.Handle}}" title="{{getDisplayName .}} ({{.Handle}})">
+                <img src="{{avatarURL .}}" alt="{{getDisplayName .}}" />
+              </a>
+              {{else}}
+              <a href="/profile/{{.Handle}}" title="{{getDisplayName .}} ({{.Handle}})">👤</a>
+              {{end}}
+            </div>
+            {{end}}
+          </div>
+        </div>
+        {{end}}
+
+        <div class="actions">
+          <a href="/timeline" class="back-button">← Back to Timeline</a>
+          {{if .CurrentUser}}
+          <a href="/logout" class="logout-btn">Sign out</a>
+          {{end}}
+        </div>
+        {{else}}
+        <div class="signin-form">
+          <h3>Sign In</h3>
+          <form action="/login" method="post">
+            <div class="form-group">
+              <label for="identifier">Username or Email:</label>
+              <input type="text" id="identifier" name="identifier" required>
+            </div>
+            <input type="submit" value="Sign In" class="signin-btn">
+          </form>
+        </div>
+        {{end}}
+      </div>
+    </div>
+
+{{template "footer.html" .}}
